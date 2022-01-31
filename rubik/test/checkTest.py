@@ -92,3 +92,11 @@ class CheckTest(TestCase):
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
+        
+    def test_check_013_ShouldReturnOkOnDifferentCharacter(self):
+        parm = {'op':'check',
+                'cube':'aaaaaaaaarrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
+        result = check._check(parm)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
