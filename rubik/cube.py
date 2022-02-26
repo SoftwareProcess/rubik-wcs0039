@@ -28,9 +28,9 @@ class Cube:
         face = self.cube[faceNumber]
         
         for oldColumn in range(len(face[0])):
-            row = 3
+            row = 2
             for oldRow in range(len(face)):
-                column = 3
+                column = 2
                 rotatedFace[row][column] = face[oldRow][oldColumn]
                 column -= 1
             row -= 1
