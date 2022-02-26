@@ -5,7 +5,7 @@ class CubeTest(unittest.TestCase):
 
     def test_check_H001_ShouldInitSolvedCube(self):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        testCube = cube()
+        testCube = cube.Cube()
         assertCube = [[['b', 'b', 'b'], ['b', 'b', 'b'], ['b', 'b', 'b']],
                      [['r', 'r', 'r'], ['r', 'r', 'r'], ['r', 'r', 'r']],
                      [['g', 'g', 'g'], ['g', 'g', 'g'], ['g', 'g', 'g']],
