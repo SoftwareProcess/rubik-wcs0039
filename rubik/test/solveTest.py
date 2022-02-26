@@ -1,4 +1,5 @@
 import unittest
+import rubik.solve as solve
 
 class SolveTest(unittest.TestCase):
 
@@ -6,7 +7,7 @@ class SolveTest(unittest.TestCase):
         parms = {'op':'check',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
                 'rotate': 'F'}
-        result = check._check(parms)
+        result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
