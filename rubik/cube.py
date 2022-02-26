@@ -19,8 +19,8 @@ class Cube:
         for face in self.cube:
             for row in range(len(face)):
                 for column in range(len(face[0])):
-                    #self.cube[row][column] = cubeString[stringIndex]
-                    pass 
+                    self.cube[row][column] = cubeString[stringIndex]
+
     #creates a new face makes it the clockwise rotation of the original(old) face
     def faceClockwise(self, faceNumber):
         rotatedFace = [[['', '', ''], ['', '', ''], ['', '', '']],
