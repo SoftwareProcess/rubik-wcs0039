@@ -18,7 +18,7 @@ def _solve(parms):
         if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
             result['status'] = 'error: invalid rotation'
             return result
-        elif(rotation = 'F'):
+        elif(rotation == 'F'):
             pass
                              
     return result
