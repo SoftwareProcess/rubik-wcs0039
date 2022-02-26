@@ -1,5 +1,5 @@
 import unittest
-import rubik.cube as cube
+import rubik.cube as Cube
 
 class CubeTest(unittest.TestCase):
 
