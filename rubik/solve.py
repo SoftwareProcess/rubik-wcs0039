@@ -24,3 +24,4 @@ def _solve(parms):
     return result
 
 def F(cube):
+    pass
