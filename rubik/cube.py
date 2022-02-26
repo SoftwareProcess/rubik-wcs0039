@@ -14,6 +14,7 @@ class Cube:
                      [['', '', ''], ['', '', ''], ['', '', '']]]
 
     
+    #converts the string representation of the cube into the cube model
     def convertString(self, cubeString):
         stringIndex = 0
         for face in self.cube:
@@ -21,6 +22,16 @@ class Cube:
                 for column in range(len(face[0])):
                     face[row][column] = cubeString[stringIndex]
                     stringIndex += 1
+                    
+    #takes the current cube model and returns its string representation
+    def convertCube(self):
+        cubeString = ''
+        for face in self.cube:
+            for row in range(len(face)):
+                for column in range(len(face[0])):
+                    cubeString += face[row][column]
+        
+        return cubeString
 
     #creates a new face makes it the clockwise rotation of the original(old) face
     def faceClockwise(self, faceNumber):
