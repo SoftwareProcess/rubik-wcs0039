@@ -19,7 +19,7 @@ class Cube:
         for face in self.cube:
             for row in range(len(face)):
                 for column in range(len(face[0])):
-                    self.cube[row][column] = cubeString[stringIndex]
+                    face[row][column] = cubeString[stringIndex]
                     stringIndex += 1
 
     #creates a new face makes it the clockwise rotation of the original(old) face
