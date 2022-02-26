@@ -24,12 +24,7 @@ class Cube:
 
     #creates a new face makes it the clockwise rotation of the original(old) face
     def faceClockwise(self, faceNumber):
-        rotatedFace = [[['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']]]
+        rotatedFace = [['', '', ''], ['', '', ''], ['', '', '']]
         face = self.cube[faceNumber]
         
         for oldColumn in range(len(face[0])):
@@ -44,12 +39,7 @@ class Cube:
         
     #creates a new face makes it the clockwise rotation of the original(old) face
     def faceCounterclockwise(self, faceNumber):
-        rotatedFace = [[['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']],
-                       [['', '', ''], ['', '', ''], ['', '', '']]]
+        rotatedFace = [['', '', ''], ['', '', ''], ['', '', '']]
         face = self.cube[faceNumber]
         
         for oldColumn in range(len(face[0]) - 1, -1, -1):
