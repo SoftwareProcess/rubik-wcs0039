@@ -12,3 +12,4 @@ class CubeTest(unittest.TestCase):
                      [['o', 'o', 'o'], ['o', 'o', 'o'], ['o', 'o', 'o']],
                      [['y', 'y', 'y'], ['y', 'y', 'y'], ['y', 'y', 'y']],
                      [['w', 'w', 'w'], ['w', 'w', 'w'], ['w', 'w', 'w']]]
+        self.assertEqual(testCube.cube, assertCube)
