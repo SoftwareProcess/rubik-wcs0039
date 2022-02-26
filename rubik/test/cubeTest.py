@@ -39,6 +39,6 @@ class CubeTest(unittest.TestCase):
         #              [['y', 'w', 'b'], ['y', 'w', 'b'], ['y', 'w', 'b']]]
         testCube = Cube.Cube()
         testCube.convertString(cubeString)
-        assertFace = [['g', 'g', 'g'], ['b','b','b'], ['y', 'y', 'y']]
+        assertFace = [['y', 'y', 'y'], ['b','b','b'], ['g', 'g', 'g']]
         testCube.faceCounterclockwise(0)
         self.assertEqual(testCube.cube[0], assertFace)
