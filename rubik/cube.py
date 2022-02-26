@@ -29,8 +29,8 @@ class Cube:
         
         for oldColumn in range(len(face[0])):
             row = 2
-            for oldRow in range(len(face)):
-                column = 2
+            column = 2
+            for oldRow in range(len(face)): 
                 rotatedFace[row][column] = face[oldRow][oldColumn]
                 column -= 1
             row -= 1
@@ -44,8 +44,8 @@ class Cube:
         
         for oldColumn in range(len(face[0]) - 1, -1, -1):
             row = 0
+            column= 0
             for oldRow in range(len(face)):
-                column= 0
                 rotatedFace[row][column] = face[oldRow][oldColumn]
                 column+= 1
             row += 1
