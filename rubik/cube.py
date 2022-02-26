@@ -4,6 +4,59 @@ class Cube:
     '''
 
     def __init__(self):
-        pass
+        #storing the whole cube as list with each face represented as a 3x3 matrix in a 2d list
+        #face order: front, right, back, left, up, down
+        self.cube = [[['', '', ''], ['', '', ''], ['', '', '']],
+                     [['', '', ''], ['', '', ''], ['', '', '']],
+                     [['', '', ''], ['', '', ''], ['', '', '']],
+                     [['', '', ''], ['', '', ''], ['', '', '']],
+                     [['', '', ''], ['', '', ''], ['', '', '']],
+                     [['', '', ''], ['', '', ''], ['', '', '']]]
 
- 
+    
+    def convertString(self, cubeString):
+        stringIndex = 0
+        for face in self.cube:
+            for row in range(len(face)):
+                for column in range(len(face[0])):
+                    #self.cube[row][column] = cubeString[stringIndex]
+                    pass 
+    #creates a new face makes it the clockwise rotation of the original(old) face
+    def faceClockwise(self, faceNumber):
+        rotatedFace = [[['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']]]
+        face = self.cube[faceNumber]
+        
+        for oldColumn in range(len(face[0])):
+            row = 3
+            for oldRow in range(len(face)):
+                column = 3
+                rotatedFace[row][column] = face[oldRow][oldColumn]
+                column -= 1
+            row -= 1
+        
+        self.cube[faceNumber] = rotatedFace
+        
+    #creates a new face makes it the clockwise rotation of the original(old) face
+    def faceCounterclockwise(self, faceNumber):
+        rotatedFace = [[['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']],
+                       [['', '', ''], ['', '', ''], ['', '', '']]]
+        face = self.cube[faceNumber]
+        
+        for oldColumn in range(len(face[0]) - 1, -1, -1):
+            row = 0
+            for oldRow in range(len(face)):
+                column= 0
+                rotatedFace[row][column] = face[oldRow][oldColumn]
+                column+= 1
+            row += 1
+        
+        self.cube[faceNumber] = rotatedFace
