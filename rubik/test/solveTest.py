@@ -12,10 +12,10 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         
-    def test_solve_H001_ShouldReturnOkOnFRotation(self):
+    def test_solve_H001_ShouldReturnOkOnEmptyRotation(self):
         parms = {'op':'check',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
-                'rotate': 'F'}
+                'rotate': ''}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
