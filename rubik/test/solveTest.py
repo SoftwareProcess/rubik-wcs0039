@@ -38,6 +38,16 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'error: cube is not the right length')
         
+    def test_solveS002_ShouldReturnErrorOnInvalidRotation(self):
+        parms = {'op':'check',
+                'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
+                'rotate': 'w'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'error: invalid rotation')
+        
+        
            
 
 
