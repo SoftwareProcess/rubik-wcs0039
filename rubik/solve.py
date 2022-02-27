@@ -88,7 +88,7 @@ def b(cubeModel):
     cubeModel.down[2][0], cubeModel.down[2][1], cubeModel.down[2][2] = copyModel.right[0][2], copyModel.right[1][2], copyModel.right[2][2]
 
 def L(cubeModel):
-    cubeModel.faceClockwisse(3)
+    cubeModel.faceClockwise(3)
     copyModel = copy.deepcopy(cubeModel)
     cubeModel.front[0][0], cubeModel.front[1][0], cubeModel.front[2][0] = copyModel.up[0][0], copyModel.up[1][0], copyModel.up[2][0] 
     cubeModel.back[0][2], cubeModel.back[1][2], cubeModel.back[2][2] = copyModel.down[0][0], copyModel.down[1][0], copyModel.down[2][0]   
