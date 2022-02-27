@@ -39,6 +39,8 @@ def _solve(parms):
             l(cubeModel)
         elif(rotation == 'U'):
             U(cubeModel)
+        elif(rotation == 'u'):
+            u(cubeModel)
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
     return result
@@ -115,4 +117,11 @@ def U(cubeModel):
     cubeModel.back[0] = copyModel.left[0]
     cubeModel.left[0] = copyModel.front[0]
             
+def u(cubeModel):
+    cubeModel.faceCounterclockwise(4)
+    copyModel = copy.deepcopy(cubeModel)
+    cubeModel.front[0] = copyModel.left[0]
+    cubeModel.right[0] = copyModel.front[0]
+    cubeModel.back[0] = copyModel.right[0]
+    cubeModel.left[0] = copyModel.back[0]
     
