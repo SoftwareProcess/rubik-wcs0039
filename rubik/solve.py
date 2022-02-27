@@ -22,6 +22,8 @@ def _solve(parms):
             return result
         elif(rotation == 'F'):
             pass
+    
+    result['cube'] = cube.convertCube()
                              
     return result
 
