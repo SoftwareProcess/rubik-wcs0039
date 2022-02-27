@@ -30,7 +30,7 @@ def _solve(parms):
 def F(cubeModel):
     cubeModel.faceClockwise(0) #rotating front face
     cube = cubeModel.cube 
-    copy = cube.copy() #making a copy use as a temp variable
+    copy = cubeModel.copy().cube #making a copy use as a temp variable
     cube.right[0][0] = copy.up[2][0], cube.right[1][0] = copy.up[2][1], cube.right[2][0] = copy.up[2][2]
     cube.left[0][2] = copy.down[0][0], cube.left[1][2] = copy.down[0][1], cube.left[2][2] = copy.down[0][2]
     cube.up[2][0] = copy.left[0][2], cube.up[2][1] = copy.left[1][2], cube.up[2][2] = copy.left[2][2]
