@@ -1,5 +1,6 @@
 import unittest
 import rubik.solve as solve
+import rubik.cube as rubik
 
 class SolveTest(unittest.TestCase):
 
@@ -55,10 +56,12 @@ class SolveTest(unittest.TestCase):
         self.assertIn('cube', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
-        cube = result.get('cube', None)
+        cube = result.get('cube', None)       
         self.assertEqual(cube, 'bbbbbbbbbyrryrryrrgggggggggoowoowoowyyyyyyooorrrwwwwww')
-                  
-           
-
-
-    
+        # cube = [[['b', 'b', 'b'], ['b', 'b', 'b'], ['b', 'b', 'b']],
+        #        [['y', 'r', 'r'], ['y', 'r', 'r'], ['y', 'r', 'r']],
+        #        [['g', 'g', 'g'], ['g', 'g', 'g'], ['g', 'g', 'g']],
+        #        [['o', 'o', 'w'], ['o', 'o', 'w'], ['o', 'o', 'w']],
+        #        [['y', 'y', 'y'], ['y', 'y', 'y'], ['o', 'o', 'o']],
+        #        [['r', 'r', 'r'], ['w', 'w', 'w'], ['w', 'w', 'w']]]
+              

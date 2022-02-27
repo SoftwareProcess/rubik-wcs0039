@@ -14,18 +14,20 @@ def _solve(parms):
         rotations = 'F'
         
     cubeString = parms.get('cube',None)
-    cube = rubik.Cube()
-    cube.convertString(cubeString)
+    cubeModel = rubik.Cube()
+    cubeModel.convertString(cubeString)
     for rotation in rotations:
         if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
             result['status'] = 'error: invalid rotation'
             return result
         elif(rotation == 'F'):
-            pass
+            F(cubeModel)
     
-    result['cube'] = cube.convertCube()
+    result['cube'] = cubeModel.convertCube()
                              
     return result
 
-def F(cube):
-    pass
+def F(cubeModel):
+    cubeModel.faceClockwise(0) #rotating front face
+    
+    
