@@ -28,6 +28,16 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
+        
+    def test_solve_S001_ShouldReturnErrorOnInvalidCube(self):
+        parms = {'op':'check',
+                'cube':'bbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
+                'rotate': 'F'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        
            
 
 
