@@ -36,7 +36,7 @@ class SolveTest(unittest.TestCase):
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
-        self.assertEqual(status, 'ok')
+        self.assertEqual(status, 'error: cube is not the right length')
         
            
 
