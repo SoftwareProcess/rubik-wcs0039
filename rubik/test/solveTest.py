@@ -3,7 +3,7 @@ import rubik.solve as solve
 
 class SolveTest(unittest.TestCase):
 
-    def test_solve_H001_ShouldReturnOkOnValidCube(self):
+    def test_solve_H001_ShouldReturnOkOnValidCubeFRotate(self):
         parms = {'op':'check',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
                 'rotate': 'F'}
@@ -12,14 +12,23 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         
-    def test_solve_H001_ShouldReturnOkOnEmptyRotation(self):
+    def test_solve_H002_ShouldReturnOkOnEmptyRotate(self):
         parms = {'op':'check',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
                 'rotate': ''}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
-        self.assertEqual(status, 'ok')    
+        self.assertEqual(status, 'ok')
+        
+    def test_solve_H003_ShouldReturnOkOnNoRotate(self):
+        parms = {'op':'check',
+                'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+           
 
 
     
