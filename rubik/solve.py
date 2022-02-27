@@ -125,3 +125,11 @@ def u(cubeModel):
     cubeModel.back[0] = copyModel.right[0]
     cubeModel.left[0] = copyModel.back[0]
     
+def D(cubeModel):
+    cubeModel.faceClockwise(5)
+    copyModel = copy.deepcopy(cubeModel)
+    cubeModel.front[2] = copyModel.left[2]
+    cubeModel.right[2] = copyModel.front[2]
+    cubeModel.back[2] = copyModel.right[2]
+    cubeModel.left[2] = copyModel.back[2]   
+    
