@@ -108,5 +108,6 @@ def l(cubeModel):
 def U(cubeModel):
     cubeModel.faceClockwise(4)
     copyModel = copy.deepcopy(cubeModel)
-    cubeModel.front[0] =           
+    cubeModel.front[0] = copyModel.right[0]
+              
     
