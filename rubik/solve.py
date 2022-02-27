@@ -42,7 +42,7 @@ def _solve(parms):
         elif(rotation == 'u'):
             u(cubeModel)
         elif(rotation == 'D'):
-            u(cubeModel)
+            D(cubeModel)
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
     return result
