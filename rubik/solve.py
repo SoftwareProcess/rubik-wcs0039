@@ -67,4 +67,4 @@ def r(cubeModel):
     cubeModel.down[0][2], cubeModel.down[1][2], cubeModel.down[2][2] = copyModel.front[0][2], copyModel.front[1][2], copyModel.front[2][2]
     
 def L(cubeModel):
-    
+    pass
