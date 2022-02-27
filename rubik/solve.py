@@ -35,6 +35,8 @@ def _solve(parms):
             b(cubeModel)
         elif(rotation == 'L'):
             L(cubeModel)
+        elif(rotation == 'l'):
+            l(cubeModel)
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
     return result
