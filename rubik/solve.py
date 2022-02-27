@@ -1,3 +1,4 @@
+import copy
 import rubik.cube as rubik
 import rubik.check as check
 
@@ -30,7 +31,7 @@ def _solve(parms):
 def F(cubeModel):
     cubeModel.faceClockwise(0) #rotating front face
     cube = cubeModel.cube 
-    copyModel = cubeModel.copy()
+    copyModel = copy.copy(cubeModel)
     copy = copyModel.cube #making a copy use as a temp variable
     cube.right[0][0] = copy.up[2][0], cube.right[1][0] = copy.up[2][1], cube.right[2][0] = copy.up[2][2]
     cube.left[0][2] = copy.down[0][0], cube.left[1][2] = copy.down[0][1], cube.left[2][2] = copy.down[0][2]
