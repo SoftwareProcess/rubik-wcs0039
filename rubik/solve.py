@@ -45,6 +45,12 @@ def _solve(parms):
             D(cubeModel)
         elif(rotation == 'd'):
             d(cubeModel)
+    cubeModel.cube[0] = cubeModel.front
+    cubeModel.cube[1] = cubeModel.right
+    cubeModel.cube[2] = cubeModel.back
+    cubeModel.cube[3] = cubeModel.left
+    cubeModel.cube[4] = cubeModel.up
+    cubeModel.cube[5] = cubeModel.down
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
     return result
