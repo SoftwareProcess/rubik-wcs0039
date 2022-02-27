@@ -64,4 +64,15 @@ class SolveTest(unittest.TestCase):
         #        [['o', 'o', 'w'], ['o', 'o', 'w'], ['o', 'o', 'w']],
         #        [['y', 'y', 'y'], ['y', 'y', 'y'], ['o', 'o', 'o']],
         #        [['r', 'r', 'r'], ['w', 'w', 'w'], ['w', 'w', 'w']]]
+        
+    def test_solveH005_ShouldReturnfRotatedCube(self):
+        parms = {'op':'solve',
+                'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
+                'rotate': 'f'}
+        result = solve._solve(parms)
+        self.assertIn('cube', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        cube = result.get('cube', None)       
+        self.assertEqual(cube, 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww')
               
