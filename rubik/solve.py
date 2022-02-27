@@ -3,6 +3,8 @@ import rubik.check as check
 
 def _solve(parms):
     result = check._check(parms) #using _.check to validate cube
+    if(result['status'] != 'ok'):
+        return result
     if('rotate' in parms):
         if('rotate' == ''):
             rotations = 'F'
