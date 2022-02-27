@@ -156,7 +156,7 @@ class SolveTest(unittest.TestCase):
     def test_solveH013_ShouldReturnuRotatedCube(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
-                'rotate': 'U'}
+                'rotate': 'u'}
         result = solve._solve(parms)
         self.assertIn('cube', result)
         status = result.get('status', None)
