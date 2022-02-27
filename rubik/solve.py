@@ -29,6 +29,8 @@ def _solve(parms):
             R(cubeModel)
         elif(rotation == 'r'):
             r(cubeModel)
+        elif(rotation == 'B'):
+            B(cubeModel)
     
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
@@ -66,5 +68,10 @@ def r(cubeModel):
     cubeModel.up[0][2], cubeModel.up[1][2], cubeModel.up[2][2] = copyModel.back[0][0], copyModel.back[1][0], copyModel.back[2][0]
     cubeModel.down[0][2], cubeModel.down[1][2], cubeModel.down[2][2] = copyModel.front[0][2], copyModel.front[1][2], copyModel.front[2][2]
     
-def L(cubeModel):
-    pass
+def B(cubeModel):
+    cubeModel.faceClockwise(2)
+    copyModel = copy.deepcopy(cubeModel)
+    cubeModel.right[0][2], cubeModel.right[1][2], cubeModel.right[2][2] = copyModel.down[2][0], copyModel.down[2][1], copyModel[2][2]
+    cubeModel.left[0][0], cubeModel.left[1][0], cubeModel.left[2][0] = copyModel.up[0][0], copyModel.up[0][1], copyModel.up[0][2]
+    cubeModel.up[0][0], cubeModel.up[0][1], cubeModel.up[0][2] = copyModel.left[0][0], copyModel.left[1][0], copyModel.left[1][0]
+    cubeModel.down[2][0], cubeModel.down[2][1], cubeModel.down[2][2] = copyModel.left[0][0], copyModel.left[1][0], copyModel.left[2][0]
