@@ -5,13 +5,19 @@ class Cube:
 
     def __init__(self):
         #storing the whole cube as list with each face represented as a 3x3 matrix in a 2d list
-        #face order: front, right, back, left, up, down
+        #face order: front, right, back, left, up, down i.e. cube[0] = front, cube[1] = right, etc.
         self.cube = [[['', '', ''], ['', '', ''], ['', '', '']],
                      [['', '', ''], ['', '', ''], ['', '', '']],
                      [['', '', ''], ['', '', ''], ['', '', '']],
                      [['', '', ''], ['', '', ''], ['', '', '']],
                      [['', '', ''], ['', '', ''], ['', '', '']],
                      [['', '', ''], ['', '', ''], ['', '', '']]]
+        self.front = self.cube[0]
+        self.right = self.cube[1]
+        self.back = self.cube[2]
+        self.left = self.cube[3]
+        self.up = self.cube[4]
+        self.down = self.cube[5]
 
     
     #converts the string representation of the cube into the cube model
