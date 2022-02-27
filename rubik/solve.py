@@ -25,6 +25,8 @@ def _solve(parms):
             F(cubeModel)
         elif(rotation == 'f'):
             f(cubeModel)
+        elif(rotation == 'R'):
+            R(cubeModel)
     
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
