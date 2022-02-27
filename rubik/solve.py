@@ -30,7 +30,7 @@ def _solve(parms):
 
 def F(cubeModel):
     cubeModel.faceClockwise(0) #rotating front face
-    copyModel = copy.copy(cubeModel)
+    copyModel = copy.deepcopy(cubeModel)
     cubeModel.right[0][0] = copyModel.up[2][0]
     cubeModel.right[1][0] = copyModel.up[2][1]
     cubeModel.right[2][0] = copyModel.up[2][2]
