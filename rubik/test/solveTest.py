@@ -195,4 +195,4 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         cube = result.get('cube', None)       
-        self.assertEqual(cube, '')              
+        self.assertEqual(cube, 'rrrbbybbowggrrryyyoowwggrggbbyoowoowoyyoyygggrrbwwbwwb')              
