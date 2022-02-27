@@ -31,7 +31,8 @@ def _solve(parms):
             r(cubeModel)
         elif(rotation == 'B'):
             B(cubeModel)
-    
+        elif(rotation == 'b'):
+            b(cubeModel)
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
     return result
@@ -81,5 +82,7 @@ def b(cubeModel):
     copyModel = copy.deepcopy(cubeModel)
     cubeModel.right[0][2], cubeModel.right[1][2], cubeModel.right[2][2] = copyModel.up[0][0], copyModel.up[0][1], copyModel.up[0][2]
     cubeModel.left[0][0], cubeModel.left[1][0], cubeModel.left[2][0] = copyModel.down[2][0], copyModel.down[2][1], copyModel.down[2][2]
+    cubeModel.up[0][0], cubeModel.up[0][1], cubeModel.up[0][2] = copyModel.left[0][0], copyModel.left[1][0], copyModel.left[2][0]
+    cubeModel.down[2][0], cubeModel.down[2][1], cubeModel.down[2][2] = copyModel.left[0][0], copyModel.left[1][0], copyModel.left[2][0]
 
     
