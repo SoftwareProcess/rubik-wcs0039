@@ -75,9 +75,9 @@ def R(cubeModel):
     cubeModel.faceClockwise(1)
     copyModel = copy.deepcopy(cubeModel)
     cubeModel.front[0][2], cubeModel.front[1][2], cubeModel.front[2][2] = copyModel.down[0][2], copyModel.down[1][2], copyModel.down[2][2]
-    cubeModel.back[0][0], cubeModel.back[1][0], cubeModel.back[2][0] = copyModel.up[0][2], copyModel.up[1][2], copyModel.up[2][2]
+    cubeModel.back[0][0], cubeModel.back[1][0], cubeModel.back[2][0] = copyModel.up[2][2], copyModel.up[1][2], copyModel.up[0][2]
     cubeModel.up[0][2], cubeModel.up[1][2], cubeModel.up[2][2] = copyModel.front[0][2], copyModel.front[1][2], copyModel.front[2][2]
-    cubeModel.down[0][2], cubeModel.down[1][2], cubeModel.down[2][2] = copyModel.back[0][0], copyModel.back[1][0], copyModel.back[2][0]
+    cubeModel.down[0][2], cubeModel.down[1][2], cubeModel.down[2][2] = copyModel.back[2][0], copyModel.back[1][0], copyModel.back[0][0]
 #checked    
 def r(cubeModel):  
     cubeModel.faceCounterclockwise(1)
@@ -117,8 +117,8 @@ def l(cubeModel):
     cubeModel.front[0][0], cubeModel.front[1][0], cubeModel.front[2][0] = copyModel.down[0][0], copyModel.down[1][0], copyModel.down[2][0]
     cubeModel.back[0][2], cubeModel.back[1][2], cubeModel.back[2][2] = copyModel.up[0][0], copyModel.up[1][0], copyModel.up[2][0]
     cubeModel.up[0][0], cubeModel.up[1][0], cubeModel.up[2][0] = copyModel.front[0][0], copyModel.front[1][0], copyModel.front[2][0]
-    cubeModel.down[0][0], cubeModel.down[1][0], cubeModel.down[2][0] = copyModel.back[0][2], copyModel.back[1][2], copyModel.back[2][2] 
-#checked?    
+    cubeModel.down[0][0], cubeModel.down[1][0], cubeModel.down[2][0] = copyModel.back[0][2], copyModel.back[1][2], copyModel.back[2][2]
+    
 def U(cubeModel):
     cubeModel.faceClockwise(4)
     copyModel = copy.deepcopy(cubeModel)
