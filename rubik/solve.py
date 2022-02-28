@@ -110,7 +110,7 @@ def L(cubeModel):
     cubeModel.back[0][2], cubeModel.back[1][2], cubeModel.back[2][2] = copyModel.down[2][0], copyModel.down[1][0], copyModel.down[0][0]   
     cubeModel.up[0][0], cubeModel.up[1][0], cubeModel.up[2][0] = copyModel.back[2][2], copyModel.back[1][2], copyModel.back[0][2]
     cubeModel.down[0][0], cubeModel.down[1][0], cubeModel.down[2][0] = copyModel.front[0][0], copyModel.front[1][0], copyModel.front[2][0]
-    
+#checked    
 def l(cubeModel):
     cubeModel.faceCounterclockwise(3)
     copyModel = copy.deepcopy(cubeModel)
