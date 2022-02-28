@@ -266,7 +266,7 @@ class SolveTest(unittest.TestCase):
     def test_solveH023_ShouldReturnlRotatedScrambledCube(self):
         parms = {'op':'solve',
                 'cube':'gyogboorbywogrwryggboggrrybwrwboryobbowyybrbgywwwwgroy',
-                'rotate': 'L'}
+                'rotate': 'l'}
         result = solve._solve(parms)
         self.assertIn('cube', result)
         status = result.get('status', None)
