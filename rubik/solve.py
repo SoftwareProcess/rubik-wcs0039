@@ -54,7 +54,7 @@ def _solve(parms):
     result['cube'] = cubeModel.convertCube() #converting back into string representation
                              
     return result
-
+#checked
 def F(cubeModel):
     cubeModel.faceClockwise(0) #rotating front face
     copyModel = copy.deepcopy(cubeModel)
@@ -62,7 +62,7 @@ def F(cubeModel):
     cubeModel.left[0][2], cubeModel.left[1][2], cubeModel.left[2][2] = copyModel.down[0][0], copyModel.down[0][1], copyModel.down[0][2]
     cubeModel.up[2][0], cubeModel.up[2][1], cubeModel.up[2][2]  = copyModel.left[2][2], copyModel.left[1][2], copyModel.left[0][2]
     cubeModel.down[0][0], cubeModel.down[0][1], cubeModel.down[0][2] = copyModel.right[2][0], copyModel.right[1][0], copyModel.right[0][0]
-
+#checked
 def f(cubeModel):
     cubeModel.faceCounterclockwise(0) #rotating front face
     copyModel = copy.deepcopy(cubeModel)
@@ -78,7 +78,7 @@ def R(cubeModel):
     cubeModel.back[0][0], cubeModel.back[1][0], cubeModel.back[2][0] = copyModel.up[0][2], copyModel.up[1][2], copyModel.up[2][2]
     cubeModel.up[0][2], cubeModel.up[1][2], cubeModel.up[2][2] = copyModel.front[0][2], copyModel.front[1][2], copyModel.front[2][2]
     cubeModel.down[0][2], cubeModel.down[1][2], cubeModel.down[2][2] = copyModel.back[0][0], copyModel.back[1][0], copyModel.back[2][0]
-    
+#checked    
 def r(cubeModel):  
     cubeModel.faceCounterclockwise(1)
     copyModel = copy.deepcopy(cubeModel)
@@ -118,7 +118,7 @@ def l(cubeModel):
     cubeModel.back[0][2], cubeModel.back[1][2], cubeModel.back[2][2] = copyModel.up[0][0], copyModel.up[1][0], copyModel.up[2][0]
     cubeModel.up[0][0], cubeModel.up[1][0], cubeModel.up[2][0] = copyModel.front[0][0], copyModel.front[1][0], copyModel.front[2][0]
     cubeModel.down[0][0], cubeModel.down[1][0], cubeModel.down[2][0] = copyModel.back[0][2], copyModel.back[1][2], copyModel.back[2][2] 
-    
+#checked?    
 def U(cubeModel):
     cubeModel.faceClockwise(4)
     copyModel = copy.deepcopy(cubeModel)
