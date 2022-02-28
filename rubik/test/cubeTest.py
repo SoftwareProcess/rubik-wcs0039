@@ -43,6 +43,14 @@ class CubeTest(unittest.TestCase):
         testCube.faceCounterclockwise(0)
         self.assertEqual(testCube.cube[0], assertFace)
         
+    def test_cube_H004_ShouldClockwiseRotateScrambledFrontFace(self):
+        cubeString = 'gyogboorbywogrwryggboggrrybwrwboryobbowyybrbgywwwwgroy'
+        testCube = rubik.Cube()
+        testCube.convertString(cubeString)
+        assertFace = [['o', 'g', 'g'], ['r','b','y'], ['b', 'o', 'o']]
+        testCube.faceClockwise(0)
+        self.assertEqual(testCube.cube[0], assertFace)
+        
     def test_cube_H004_ShouldConvertRotatedCubeToString(self):
         cubeString = 'gbygbygbyrrrrrrrrrwgbwgbwgbooooooooowygwygwygywbywbywb'
         testCube = rubik.Cube()
