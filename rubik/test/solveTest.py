@@ -331,7 +331,7 @@ class SolveTest(unittest.TestCase):
         
     def test_solveY002_ShouldSolveScrambledCube(self):
         parms = {'op':'solve',
-                'cube':'bbogyoyoygrybrrrrbggrgwoobwwgwwowbrrgooygyowwyyrbbwbyg',
+                'cube':'bbogyoyoygrybrrrrbggrgwoobwwgwwowbrrgooygyowwgybwbbryy',
                 'rotate': 'RULuDrDFLLUUflFdRRBBUUFFUURR'}
         result = solve._solve(parms)
         self.assertIn('cube', result)
