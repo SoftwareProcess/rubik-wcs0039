@@ -44,13 +44,13 @@ class Cube:
         rotatedFace = [['', '', ''], ['', '', ''], ['', '', '']]
         face = self.cube[faceNumber]
         
-        row = 0
+        row = 2
         for oldColumn in range(len(face[0])):
-            column = 0
+            column = 2
             for oldRow in range(len(face)): 
                 rotatedFace[row][column] = face[oldRow][oldColumn]
-                column += 1
-            row += 1
+                column -= 1
+            row -= 1
         
         self.cube[faceNumber] = rotatedFace
         self.front = self.cube[0]
