@@ -74,7 +74,7 @@ class Cube:
             row += 1
         
         self.cube[faceNumber] = rotatedFace
-                self.front = self.cube[0]
+        self.front = self.cube[0]
         self.right = self.cube[1]
         self.back = self.cube[2]
         self.left = self.cube[3]
