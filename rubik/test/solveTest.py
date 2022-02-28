@@ -197,6 +197,17 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube', None)       
         self.assertEqual(cube, 'oggrbyboorwobrwgyggboggrrybwrybowyowbowyybbrwrgywwgroy')
         
+    def test_solveH017_ShouldReturnfRotatedScrambledCube(self):
+        parms = {'op':'solve',
+                'cube':'gyogboorbywogrwryggboggrrybwrwboryobbowyybrbgywwwwgroy',
+                'rotate': 'f'}
+        result = solve._solve(parms)
+        self.assertIn('cube', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        cube = result.get('cube', None)       
+        self.assertEqual(cube, 'oggrbyboorwobrwgyggboggrrybwrybowyowbowyybbrwrgywwgroy')
+        
     def test_solveH01X_ShouldreturnFrRotatedCube(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
