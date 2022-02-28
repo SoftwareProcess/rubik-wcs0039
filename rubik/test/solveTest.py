@@ -206,7 +206,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         cube = result.get('cube', None)       
-        self.assertEqual(cube, 'oggrbyboorwobrwgyggboggrrybwrybowyowbowyybbrwrgywwgroy')
+        self.assertEqual(cube, 'oobybrggowwowrwyyggboggrrybwrgbobyorbowyybygrwrbwwgroy')
         
     def test_solveH01X_ShouldreturnFrRotatedCube(self):
         parms = {'op':'solve',
