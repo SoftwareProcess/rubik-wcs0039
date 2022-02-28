@@ -53,6 +53,12 @@ class Cube:
             row += 1
         
         self.cube[faceNumber] = rotatedFace
+        self.front = self.cube[0]
+        self.right = self.cube[1]
+        self.back = self.cube[2]
+        self.left = self.cube[3]
+        self.up = self.cube[4]
+        self.down = self.cube[5]
         
     #creates a new face makes it the clockwise rotation of the original(old) face
     def faceCounterclockwise(self, faceNumber):
@@ -68,3 +74,9 @@ class Cube:
             row += 1
         
         self.cube[faceNumber] = rotatedFace
+                self.front = self.cube[0]
+        self.right = self.cube[1]
+        self.back = self.cube[2]
+        self.left = self.cube[3]
+        self.up = self.cube[4]
+        self.down = self.cube[5]

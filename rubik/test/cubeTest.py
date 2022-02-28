@@ -51,4 +51,4 @@ class CubeTest(unittest.TestCase):
         cubeString = testCube.convertCube()
         assertString = 'gggbbbyyyrrrrrrrrrwgbwgbwgbooooooooowygwygwygywbywbywb'
         self.assertEqual(cubeString, assertString)
-        
+               
