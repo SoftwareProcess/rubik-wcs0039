@@ -6,14 +6,13 @@ def _solve(parms):
     result = check._check(parms) #using _.check to validate cube
     if(result['status'] != 'ok'):
         return result
+    rotations = 'F' #default value
     if('rotate' in parms):
         if('rotate' == ''):
-            rotations = 'F'
+            pass
         else:
             rotations = parms.get('rotate', None)
-    else:
-        rotations = 'F'
-        
+    
     cubeString = parms.get('cube',None)
     cubeModel = rubik.Cube()
     cubeModel.convertString(cubeString)
