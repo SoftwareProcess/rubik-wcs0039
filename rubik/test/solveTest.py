@@ -16,7 +16,7 @@ class SolveTest(unittest.TestCase):
     def test_solve_H002_ShouldReturnOkOnEmptyRotate(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
-                'rotate': ' '}
+                'rotate': ''}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
