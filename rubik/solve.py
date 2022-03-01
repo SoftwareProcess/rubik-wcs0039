@@ -8,7 +8,7 @@ def _solve(parms):
         return result
     rotations = 'F' #default value
     if('rotate' in parms):
-        if('rotate' == '' or 'rotate' == None):
+        if('rotate' == '' or 'rotate' == ' '):
             pass
         else:
             rotations = parms.get('rotate', None)
