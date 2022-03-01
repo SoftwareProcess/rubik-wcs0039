@@ -18,12 +18,6 @@ def _solve(parms):
     cubeModel = rubik.Cube()
     cubeModel.convertString(cubeString)
     for rotation in rotations:
-        # cubeModel.cube[0] = cubeModel.front
-        # cubeModel.cube[1] = cubeModel.right
-        # cubeModel.cube[2] = cubeModel.back
-        # cubeModel.cube[3] = cubeModel.left
-        # cubeModel.cube[4] = cubeModel.up
-        # cubeModel.cube[5] = cubeModel.down
         if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
             result['status'] = 'error: invalid rotation'
             return result
