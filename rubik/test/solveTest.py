@@ -13,7 +13,7 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         
-    def test_solve_H002_ShouldReturnOkOnEmptyRotate(self):
+    def test_solve_H002_ShouldReturnFRotatedCubeOnEmptyRotate(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
                 'rotate': ''}
@@ -31,8 +31,6 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
-        cube = result.get('cube', None)
-        self.assertEqual(cube, 'bbbbbbbbbyrryrryrrgggggggggoowoowoowyyyyyyooorrrwwwwww')
         
     def test_solve_S001_ShouldReturnErrorOnInvalidCube(self):
         parms = {'op':'solve',
@@ -343,4 +341,14 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         cube = result.get('cube', None)       
         self.assertEqual(cube, 'yyyyyyyyyrrrrrrrrrwwwwwwwwwooooooooogggggggggbbbbbbbbb') 
-                  
+        
+    def test_solveH028_ShouldReturnEmptySolutionOnSolvedCube(self):
+        parms = {'op':'solve',
+                'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertTrue(len(solution) == 0)
+                        
