@@ -21,7 +21,9 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
-        
+        cube = result.get('cube', None)
+        self.assertEqual(cube, 'bbbbbbbbbyrryrryrrgggggggggoowoowoowyyyyyyooorrrwwwwww')  
+              
     def test_solve_H003_ShouldReturnOkOnNoRotate(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
