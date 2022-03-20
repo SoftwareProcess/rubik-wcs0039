@@ -11,7 +11,7 @@ def _solve(parms):
     cubeModel = rubik.Cube()
     cubeModel.convertString(cubeString)
     if('rotate' in parms and len(parms['rotate']) > 0):
-        rotations = parms.get('rotate', None)
+        rotations = parms.get('rotate', None)   
         
         for rotation in rotations:
             if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
@@ -147,6 +147,16 @@ def solveDownCross(cubeModel, result):
     if(checkDownCross(cubeModel) == True):
         result['solution'] = solution
         return result
+    
+    downColor = cubeModel.down[1][1]
+    upColor = cubeModel.up[1][1]
+    frontColor = cubeModel.front[1][1]
+    rightColor = cubeModel.down[1][1]
+    backColor = cubeModel.back[1][1]
+    leftColor = cubeModel.front[1][1]
+    
+    while(checkDownCross(cubeModel) == False):
+        pass
     
     return result
 

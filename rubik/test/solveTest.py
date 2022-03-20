@@ -361,4 +361,12 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertTrue(len(solution) == 0)        
     
-                        
+    def test_solveH030_ShouldReturnCorrectSolutionOnMostLySolvedCube(self):
+        parms = {'op':'solve',
+                'cube':'gggggggggorrorrorrbbbbbbbbboorooroorwwwwwwyyywwwyyyyyy'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution')
+        self.assertEqual(solution, 'FF')                      
