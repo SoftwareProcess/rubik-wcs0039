@@ -340,7 +340,7 @@ class SolveTest(unittest.TestCase):
         cube = result.get('cube', None)       
         self.assertEqual(cube, 'yyyyyyyyyrrrrrrrrrwwwwwwwwwooooooooogggggggggbbbbbbbbb')
         
-    def test_SolveH028_CheckBottomCrossShouldReturnTrueOnSolvedBottomCross(self):
+    def test_SolveH028_CheckBottomCrossShouldReturnTrueOnSolvedCube(self):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
@@ -358,7 +358,7 @@ class SolveTest(unittest.TestCase):
         cubeTest.convertString(cubeString)
         self.assertTrue(solve.checkDownCross(cubeTest) == True)
             
-    def test_solveH028_ShouldReturnEmptySolutionOnSolvedCube(self):
+    def test_solveH030_ShouldReturnEmptySolutionOnSolvedCube(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
         result = solve._solve(parms)
@@ -368,7 +368,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertTrue(len(solution) == 0)
         
-    def test_solveH029_ShouldReturnEmptySolutionOnSolvedCubeEmptyRotate(self):
+    def test_solveH031_ShouldReturnEmptySolutionOnSolvedCubeEmptyRotate(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww',
                 'rotate': ''}
@@ -379,13 +379,20 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertTrue(len(solution) == 0)        
     
-    @unittest.skip
-    def test_solveH030_ShouldReturnCorrectSolutionOnMostLySolvedCube(self):
+    def test_solveH032_ShouldSolveBottomCrossOnMostLySolvedCube(self):
         parms = {'op':'solve',
                 'cube':'gggggggggorrorrorrbbbbbbbbboorooroorwwwwwwyyywwwyyyyyy'}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
-        solution = result.get('solution')
-        self.assertEqual(solution, 'FF')                      
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'gggggggggorrorrorrbbbbbbbbboorooroorwwwwwwyyywwwyyyyyy',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
