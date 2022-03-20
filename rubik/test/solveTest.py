@@ -351,7 +351,13 @@ class SolveTest(unittest.TestCase):
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
         self.assertFalse(solve.checkDownCross(cubeTest) == True)
-                
+        
+    def test_SolveY003_CheckBottomCrossShouldReturnTrueOnSolvedBottomCross(self):
+        cubeString = 'gooybgwbyyybyrbbrwobbrgbrgwrgroorbooyywryoygggwowwwrwg'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        self.assertTrue(solve.checkDownCross(cubeTest) == True)
+            
     def test_solveH028_ShouldReturnEmptySolutionOnSolvedCube(self):
         parms = {'op':'solve',
                 'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
