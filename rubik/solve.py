@@ -10,12 +10,8 @@ def _solve(parms):
     cubeString = parms.get('cube',None)
     cubeModel = rubik.Cube()
     cubeModel.convertString(cubeString)
-    if('rotate' in parms):
-        rotations = 'F' #default value
-        if(len(parms['rotate']) == 0):
-            pass
-        else:
-            rotations = parms.get('rotate', None)
+    if('rotate' in parms and len(parms['rotate']) > 0):
+        rotations = parms.get('rotate', None)
         
         for rotation in rotations:
             if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
