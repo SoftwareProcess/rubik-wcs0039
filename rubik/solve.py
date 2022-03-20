@@ -6,46 +6,47 @@ def _solve(parms):
     result = check._check(parms) #using _.check to validate cube
     if(result['status'] != 'ok'):
         return result
-    rotations = 'F' #default value
     if('rotate' in parms):
+        rotations = 'F' #default value
         if(len(parms['rotate']) == 0):
             pass
         else:
             rotations = parms.get('rotate', None)
-    
-    cubeString = parms.get('cube',None)
-    cubeModel = rubik.Cube()
-    cubeModel.convertString(cubeString)
-    for rotation in rotations:
-        if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
-            result['status'] = 'error: invalid rotation'
-            return result
-        elif(rotation == 'F'):
-            F(cubeModel)
-        elif(rotation == 'f'):
-            f(cubeModel)
-        elif(rotation == 'R'):
-            R(cubeModel)
-        elif(rotation == 'r'):
-            r(cubeModel)
-        elif(rotation == 'B'):
-            B(cubeModel)
-        elif(rotation == 'b'):
-            b(cubeModel)
-        elif(rotation == 'L'):
-            L(cubeModel)
-        elif(rotation == 'l'):
-            l(cubeModel)
-        elif(rotation == 'U'):
-            U(cubeModel)
-        elif(rotation == 'u'):
-            u(cubeModel)
-        elif(rotation == 'D'):
-            D(cubeModel)
-        elif(rotation == 'd'):
-            d(cubeModel)
-    result['cube'] = cubeModel.convertCube() #converting back into string representation
-                             
+        
+        cubeString = parms.get('cube',None)
+        cubeModel = rubik.Cube()
+        cubeModel.convertString(cubeString)
+        for rotation in rotations:
+            if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
+                result['status'] = 'error: invalid rotation'
+                return result
+            elif(rotation == 'F'):
+                F(cubeModel)
+            elif(rotation == 'f'):
+                f(cubeModel)
+            elif(rotation == 'R'):
+                R(cubeModel)
+            elif(rotation == 'r'):
+                r(cubeModel)
+            elif(rotation == 'B'):
+                B(cubeModel)
+            elif(rotation == 'b'):
+                b(cubeModel)
+            elif(rotation == 'L'):
+                L(cubeModel)
+            elif(rotation == 'l'):
+                l(cubeModel)
+            elif(rotation == 'U'):
+                U(cubeModel)
+            elif(rotation == 'u'):
+                u(cubeModel)
+            elif(rotation == 'D'):
+                D(cubeModel)
+            elif(rotation == 'd'):
+                d(cubeModel)
+        result['cube'] = cubeModel.convertCube() #converting back into string representation
+    else:
+        result['solution'] = ''                       
     return result
 
 def F(cubeModel):
