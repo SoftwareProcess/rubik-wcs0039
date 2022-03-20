@@ -156,6 +156,7 @@ def solveDownCross(cubeModel, result):
     leftColor = cubeModel.front[1][1]
     
     while(checkDownCross(cubeModel) == False):
+        #check if front face edge is in up(daisy) solved postion or true solved position
         break
     
     return result

@@ -338,7 +338,15 @@ class SolveTest(unittest.TestCase):
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         cube = result.get('cube', None)       
-        self.assertEqual(cube, 'yyyyyyyyyrrrrrrrrrwwwwwwwwwooooooooogggggggggbbbbbbbbb') 
+        self.assertEqual(cube, 'yyyyyyyyyrrrrrrrrrwwwwwwwwwooooooooogggggggggbbbbbbbbb')
+        
+    def test_SolveH028_CheckBottomCrossShouldReturnTrueOnSolvedBottomCross(self):
+        parms = {'op':'solve',
+                'cube':'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'}
+        result = solve._solve(parms)
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(result.get('cube', None))
+        self.assertTrue(solve.checkDownCross(cubeTest) == True)
         
     def test_solveH028_ShouldReturnEmptySolutionOnSolvedCube(self):
         parms = {'op':'solve',
@@ -361,6 +369,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution')
         self.assertTrue(len(solution) == 0)        
     
+    @unittest.skip
     def test_solveH030_ShouldReturnCorrectSolutionOnMostLySolvedCube(self):
         parms = {'op':'solve',
                 'cube':'gggggggggorrorrorrbbbbbbbbboorooroorwwwwwwyyywwwyyyyyy'}
