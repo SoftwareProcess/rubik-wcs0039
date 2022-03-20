@@ -6,6 +6,10 @@ def _solve(parms):
     result = check._check(parms) #using _.check to validate cube
     if(result['status'] != 'ok'):
         return result
+    
+    cubeString = parms.get('cube',None)
+    cubeModel = rubik.Cube()
+    cubeModel.convertString(cubeString)
     if('rotate' in parms):
         rotations = 'F' #default value
         if(len(parms['rotate']) == 0):
@@ -13,9 +17,6 @@ def _solve(parms):
         else:
             rotations = parms.get('rotate', None)
         
-        cubeString = parms.get('cube',None)
-        cubeModel = rubik.Cube()
-        cubeModel.convertString(cubeString)
         for rotation in rotations:
             if(rotation not in ['F', 'f', 'R', 'r', 'B', 'b', 'L', 'l', 'U', 'u', 'D', 'd']):
                 result['status'] = 'error: invalid rotation'
@@ -46,7 +47,7 @@ def _solve(parms):
                 d(cubeModel)
         result['cube'] = cubeModel.convertCube() #converting back into string representation
     else:
-        result['solution'] = ''                       
+        solveDownCross(cubeModel, result) 
     return result
 
 def F(cubeModel):
@@ -143,5 +144,31 @@ def d(cubeModel):
     cubeModel.front[2] = copyModel.right[2]
     cubeModel.right[2] = copyModel.back[2]
     cubeModel.back[2] = copyModel.left[2]
-    cubeModel.left[2] = copyModel.front[2]   
+    cubeModel.left[2] = copyModel.front[2]
     
+def solveDownCross(cubeModel, result):
+    solution = ''
+    if(checkDownCross(cubeModel) == True):
+        result['solution'] = solution
+        return result
+    
+    return result
+
+def checkDownCross(cubeModel):  
+    color = cubeModel.down[1][1] # down center color
+    #checking down face cross squares
+    if(cubeModel.down[0][1] == color and cubeModel.down[1][0] == color and cubeModel.down[1][2] == color and cubeModel.down[2][1]):
+        #checking edge squares on adjacent faces
+        if(cubeModel.front[2][1] != cubeModel.front[1][1]):
+            return False
+        elif(cubeModel.right[2][1] != cubeModel.right[1][1]):
+            return False
+        elif(cubeModel.back[2][1] != cubeModel.back[1][1]):
+            return False
+        elif(cubeModel.left[2][1] != cubeModel.left[1][1]):
+            return False
+        else:
+            return True
+    else:
+        return False
+        
