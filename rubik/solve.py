@@ -156,7 +156,7 @@ def solveDownCross(cubeModel, result):
     leftColor = cubeModel.front[1][1]
     
     while(checkDownCross(cubeModel) == False):
-        pass
+        break
     
     return result
 
