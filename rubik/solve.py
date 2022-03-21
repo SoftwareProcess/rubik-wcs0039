@@ -219,7 +219,10 @@ def solveDownCross(cubeModel, result):
         solution += 'DfuRU'
     #check if front edge is in clockwise of front/counter of right
     elif(cubeModel.front[1][2] == downColor and cubeModel.right[1][0] == frontColor):
-        pass
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        solution += 'uRU'
     #check if front edge is flipped in clockwise of front/counter of right 
     elif(cubeModel.front[1][2] == frontColor and cubeModel.right[1][0] == downColor):
         f(cubeModel)
