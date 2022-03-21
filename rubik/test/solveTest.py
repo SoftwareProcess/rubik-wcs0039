@@ -365,7 +365,7 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
-        solution = result.get('solution')
+        solution = result.get('solution', None)
         self.assertTrue(len(solution) == 0)
         
     def test_solveH031_ShouldReturnEmptySolutionOnSolvedCubeEmptyRotate(self):
@@ -376,12 +376,12 @@ class SolveTest(unittest.TestCase):
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
-        solution = result.get('solution')
+        solution = result.get('solution', None)
         self.assertTrue(len(solution) == 0)        
     
-    def test_solveH032_ShouldSolveBottomCrossOnMostLySolvedCube(self):
+    def test_solveH032_ShouldSolveFrontPieceOfBottomCrossOnMostlySolvedCross(self):
         parms = {'op':'solve',
-                'cube':'gggggggggorrorrorrbbbbbbbbboorooroorwwwwwwyyywwwyyyyyy'}
+                'cube':'bgbbgbbgbrrrrrrrrrgbggbggbgoooooooooyyyywyyyywwwwywwww'}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
@@ -389,10 +389,46 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution', None)
         #putting provided solution into solve as 'rotate' to check if bottom cross is solved
         assertParms = {'op':'solve',
-                       'cube':'gggggggggorrorrorrbbbbbbbbboorooroorwwwwwwyyywwwyyyyyy',
+                       'cube':'bgbbgbbgbrrrrrrrrrgbggbggbgoooooooooyyyywyyyywwwwywwww',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)
+        
+    def test_solveH033_ShouldSolveCrossWithFlippedDownFrontPiece(self):
+        parms = {'op':'solve',
+                'cube':'wybrboowbrrogryobgwgybgorgrgoryobwggowbwywgrywbyrwobyy'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'wybrboowbrrogryobgwgybgorgrgoryobwggowbwywgrywbyrwobyy',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
+    @unittest.skip    
+    def test_solveH034_ShouldSolveCrossWithFlippedUpFrontPiece(self):
+        parms = {'op':'solve',
+                'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrhborwgbyo'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrhborwgbyo',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)        
