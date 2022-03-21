@@ -158,6 +158,7 @@ def solveDownCross(cubeModel, result):
     #clockwise side = right when looking at face straight on (i.e oriented to the front)
     #counter side = left when looking at face sraight on
     #'flipped' cases are cases where the front color is first in the conditional
+    
     #while(checkDownCross(cubeModel) == False):
     
     #Putting front edge in daisy(up) position
@@ -230,12 +231,20 @@ def solveDownCross(cubeModel, result):
         solution += 'f'  
     #check if front edge is in clockwise of right/counter of back
     elif(cubeModel.right[1][2] == downColor and cubeModel.back[1][0] == frontColor):
-        pass
+        u(cubeModel)
+        r(cubeModel)
+        U(cubeModel)
+        F(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        solution += 'urUFuRU'
     #check if front edge is flipped in clockwise of right/counter of back
     elif(cubeModel.right[1][2] == frontColor and cubeModel.back[1][0] == downColor):    
         u(cubeModel)
         r(cubeModel)
         U(cubeModel)
+        solution += 'urU'
     #check if front edge is in clockwise of back/ counter of left
     elif(cubeModel.back[1][2] == downColor and cubeModel.left[1][0] == frontColor):
         pass
