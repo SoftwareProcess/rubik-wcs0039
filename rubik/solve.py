@@ -283,33 +283,28 @@ def solveDownCross(cubeModel, result):
     #These up conditions are designed with the assumption that the two remaining top pieces might be solved, and thus avoid removing them
     #check if front edge is in up of right
     elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == frontColor):
+        # F(cubeModel)
+        # F(cubeModel)
+        # B(cubeModel)
+        # B(cubeModel)
+        # L(cubeModel)
+        # L(cubeModel)
+        # u(cubeModel)
+        # B(cubeModel)
+        # B(cubeModel)
+        # L(cubeModel)
+        # L(cubeModel)
+        # solution += 'FFBBLLuBBLL'
         F(cubeModel)
         F(cubeModel)
-        B(cubeModel)
-        B(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
-        u(cubeModel)
-        B(cubeModel)
-        B(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
-        solution += 'FFBBLLuBBLL'
+        R(cubeModel)
+        R(cubeModel)
+        d(cubeModel)
+        F(cubeModel)
+        F(cubeModel)
+        solution += 'FFRRdFF'
     #check if front edge is flipped in up of right
     elif(cubeModel.up[1][2] == frontColor and cubeModel.right[0][1] == downColor):
-        # F(cubeModel)
-        # F(cubeModel)
-        # B(cubeModel)
-        # B(cubeModel)
-        # L(cubeModel)
-        # L(cubeModel)
-        # r(cubeModel)
-        # f(cubeModel)
-        # B(cubeModel)
-        # B(cubeModel)
-        # L(cubeModel)
-        # L(cubeModel)
-        # solution += 'FFBBLLrfBBLL'
         F(cubeModel)
         F(cubeModel)
         r(cubeModel)
