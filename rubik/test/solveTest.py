@@ -414,7 +414,7 @@ class SolveTest(unittest.TestCase):
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)
-    @unittest.skip    
+    
     def test_solveH034_ShouldSolveCrossWithFlippedUpFrontPiece(self):
         parms = {'op':'solve',
                 'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrhborwgbyo'}

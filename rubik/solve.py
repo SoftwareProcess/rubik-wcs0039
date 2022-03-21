@@ -225,11 +225,11 @@ def solveDownCross(cubeModel, result):
         pass
     #check if front edge is flipped in daisy position
     elif(cubeModel.up[2][1] == frontColor and cubeModel.front[0][1] == downColor):
-        F(cubeModel)
-        u(cubeModel)
-        R(cubeModel)
-        U(cubeModel)
-        solution += 'FuRU'
+        # F(cubeModel)
+        # u(cubeModel)
+        # R(cubeModel)
+        # U(cubeModel)
+        # solution += 'FuRU'
     #check if front edge is in up of right
     elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == frontColor):
         pass
