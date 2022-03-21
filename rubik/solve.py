@@ -280,9 +280,9 @@ def solveDownCross(cubeModel, result):
         R(cubeModel)
         U(cubeModel)
         solution += 'FuRU'
+    #These up conditions are designed with the assumption that the two remaining top pieces might be solved, and thus avoid removing them
     #check if front edge is in up of right
     elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == frontColor):
-        #these double rotations are to preserve the pieces in the other two up positions if they are already solved
         F(cubeModel)
         F(cubeModel)
         B(cubeModel)
@@ -297,23 +297,40 @@ def solveDownCross(cubeModel, result):
         solution += 'FFBBLLuBBLL'
     #check if front edge is flipped in up of right
     elif(cubeModel.up[1][2] == frontColor and cubeModel.right[0][1] == downColor):
+        # F(cubeModel)
+        # F(cubeModel)
+        # B(cubeModel)
+        # B(cubeModel)
+        # L(cubeModel)
+        # L(cubeModel)
+        # r(cubeModel)
+        # f(cubeModel)
+        # B(cubeModel)
+        # B(cubeModel)
+        # L(cubeModel)
+        # L(cubeModel)
+        # solution += 'FFBBLLrfBBLL'
         F(cubeModel)
         F(cubeModel)
-        B(cubeModel)
-        B(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
         r(cubeModel)
         f(cubeModel)
-        B(cubeModel)
-        B(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
-        solution += 'FFBBLLrfBBLL'
+        solution += 'FFrf'
     #check if front edge is in up of back
     elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == frontColor):
-        pass  
-    #check if front edge is in up of back
+        F(cubeModel)
+        F(cubeModel)
+        R(cubeModel)
+        R(cubeModel)
+        L(cubeModel)
+        L(cubeModel)
+        U(cubeModel)
+        U(cubeModel)
+        R(cubeModel)
+        R(cubeModel)
+        L(cubeModel)
+        L(cubeModel)
+        solution += 'FFRRLLUURRLL' 
+    #check if front edge is flipped in up of back
     elif(cubeModel.up[0][1] == frontColor and cubeModel.back[0][1] == downColor):
         pass
     #check if front edge is in up of left 

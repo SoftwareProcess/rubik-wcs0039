@@ -505,7 +505,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)
         
-    def test_solveH039_ShouldSolveFrontPieceWithFlippedUpRightFrontPiece(self):
+    def test_solveH039_ShouldMostlySolveCrossWithFlippedUpRightFrontPiece(self):
         parms = {'op':'solve',
                 'cube':'wrbbbyobbywgoryybwygrgggrobbogroowyywwrwybowogyrrwrogg'}
         result = solve._solve(parms)
