@@ -397,7 +397,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)
         
-    def test_solveH033_ShouldSolveCrossWithFlippedDownFrontPiece(self):
+    def test_solveH033_ShouldSolveCrossWithFlippedFrontDownFrontPiece(self):
         parms = {'op':'solve',
                 'cube':'wybrboowbrrogryobgwgybgorgrgoryobwggowbwywgrywbyrwobyy'}
         result = solve._solve(parms)
@@ -415,7 +415,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)
     
-    def test_solveH034_ShouldSolveCrossWithFlippedUpFrontPiece(self):
+    def test_solveH034_ShouldSolveCrossWithFlippedFrontUpFrontPiece(self):
         parms = {'op':'solve',
                 'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrgborwgbyo'}
         result = solve._solve(parms)
@@ -426,6 +426,24 @@ class SolveTest(unittest.TestCase):
         #putting provided solution into solve as 'rotate' to check if bottom cross is solved
         assertParms = {'op':'solve',
                        'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrgborwgbyo',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
+        
+    def test_solveH035_ShouldSolveCrossWithFlippedDownRightFrontPiece(self):
+        parms = {'op':'solve',
+                'cube':'roogbrroybrobrgrwgwgyrgorbogogyoywybowbywywgywbbrwbgyy'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'roogbrroybrobrgrwgwgyrgorbogogyoywybowbywywgywbbrwbgyy',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)
