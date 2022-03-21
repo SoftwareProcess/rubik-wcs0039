@@ -261,16 +261,19 @@ def solveDownCross(cubeModel, result):
         solution += 'ULLuF'
     #check if front edge is in counter of front/clockwise of left 
     elif(cubeModel.left[1][2] == downColor and cubeModel.front[1][0] == frontColor):
-        pass
+        F(cubeModel)
+        solution += 'F'
     #check if front edge is flipped in counter of front/clockwise of left
     elif(cubeModel.left[1][2] == frontColor and cubeModel.front[1][0] == downColor):
-        pass
+        U(cubeModel)
+        l(cubeModel)
+        u(cubeModel)
+        solution += 'Ulu'
     
-    
-    #check if front edge is in up (daisy) solved position
+    #check if front edge is in up of front (daisy solved position)
     elif(cubeModel.up[2][1] == downColor and cubeModel.front[0][1] == frontColor):
         pass
-    #check if front edge is flipped in daisy position
+    #check if front edge is flipped in up of front (daisy position)
     elif(cubeModel.up[2][1] == frontColor and cubeModel.front[0][1] == downColor):
         F(cubeModel)
         u(cubeModel)
@@ -279,10 +282,22 @@ def solveDownCross(cubeModel, result):
         solution += 'FuRU'
     #check if front edge is in up of right
     elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == frontColor):
-        pass
+        #these double rotations are to preserve the pieces in the other two up positions if they are already solved
+        F(cubeModel)
+        F(cubeModel)
+        B(cubeModel)
+        B(cubeModel)
+        L(cubeModel)
+        L(cubeModel)
+        u(cubeModel)
+        B(cubeModel)
+        B(cubeModel)
+        L(cubeModel)
+        L(cubeModel)
+        solution += 'FFBBLLuBBLL'
     #check if front edge is flipped in up of right
     elif(cubeModel.up[1][2] == frontColor and cubeModel.right[0][1] == downColor):
-        pass   
+        pass
     #check if front edge is in up of back
     elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == frontColor):
         pass  
