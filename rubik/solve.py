@@ -190,24 +190,40 @@ def solveDownCross(cubeModel, result):
         solution += 'uRUf'
     #check if front edge is in down of back
     elif(cubeModel.down[2][1] == downColor and cubeModel.back[2][1] == frontColor):
-        pass
+        D(cubeModel)
+        D(cubeModel)
+        F(cubeModel)
+        F(cubeModel)
+        solution += 'DDFF'
     #check if front edge is flipped in down of back
     elif(cubeModel.down[2][1] == frontColor and cubeModel.back[2][1] == downColor):
-        pass
+        d(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        f(cubeModel)
+        solution += 'duRUf'
     #check if front edge is in down of left
     elif(cubeModel.down[1][0] == downColor and cubeModel.left[2][1] == frontColor):
-        pass
+        D(cubeModel)
+        F(cubeModel)
+        F(cubeModel)
+        solution += 'DFF'
     #check if front edge is flipped in down of left
     elif(cubeModel.down[1][0] == frontColor and cubeModel.left[2][1] == downColor):
-        pass
-    
-
+        D(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        solution += 'DfuRU'
     #check if front edge is in clockwise of front/counter of right
     elif(cubeModel.front[1][2] == downColor and cubeModel.right[1][0] == frontColor):
         pass
     #check if front edge is flipped in clockwise of front/counter of right 
     elif(cubeModel.front[1][2] == frontColor and cubeModel.right[1][0] == downColor):
-        pass  
+        f(cubeModel)
+        solution += 'f'  
     #check if front edge is in clockwise of right/counter of back
     elif(cubeModel.right[1][2] == downColor and cubeModel.back[1][0] == frontColor):
         pass

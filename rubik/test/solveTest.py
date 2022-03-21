@@ -449,4 +449,22 @@ class SolveTest(unittest.TestCase):
         assertString = assertResult.get('cube', None)
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
+        
+    def test_solveH036_ShouldSolveCrossWithClockwiseFrontFrontPiece(self):
+        parms = {'op':'solve',
+                'cube':'gggbbworbwrobrbrbywgyrgogrbgowyoyyobowbwywryoyywgworgr'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'gggbbworbwrobrbrbywgyrgogrbgowyoyyobowbwywryoyywgworgr',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)        
