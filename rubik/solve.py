@@ -230,6 +230,7 @@ def solveDownCross(cubeModel, result):
         # R(cubeModel)
         # U(cubeModel)
         # solution += 'FuRU'
+        pass
     #check if front edge is in up of right
     elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == frontColor):
         pass
