@@ -324,7 +324,17 @@ def solveDownCross(cubeModel, result):
         solution += 'FFBBDDFF' 
     #check if front edge is flipped in up of back
     elif(cubeModel.up[0][1] == frontColor and cubeModel.back[0][1] == downColor):
-        pass
+        F(cubeModel)
+        F(cubeModel)
+        B(cubeModel) 
+        B(cubeModel)
+        D(cubeModel)
+        D(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        solution += 'FFBBDDfuRU'
     #check if front edge is in up of left 
     elif(cubeModel.up[1][0] == downColor and cubeModel.left[0][1] == frontColor):
         pass
