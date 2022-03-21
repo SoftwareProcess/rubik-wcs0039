@@ -547,7 +547,7 @@ class SolveTest(unittest.TestCase):
         self.assertTrue((assertCube.down[1][0] == assertCube.down[1][1] and assertCube.left[2][1] == assertCube.left[1][1]) == True)
         self.assertTrue((assertCube.down[2][1] == assertCube.down[1][1] and assertCube.back[2][1] == assertCube.back[1][1]) == True)
         
-    def test_solveH041_ShouldMostlySolveCrossWithFlippedUpRightFrontPiece(self):
+    def test_solveH041_ShouldMostlySolveCrossWithFlippedUpBackFrontPiece(self):
         parms = {'op':'solve',
                 'cube':'wgwrbgyowbrbrrybyoywyggbwbyborooboorrbowywgwoggrywrgyg'}
         result = solve._solve(parms)
@@ -566,4 +566,22 @@ class SolveTest(unittest.TestCase):
         #checking for three pieces that should definitely be solved
         self.assertTrue((assertCube.down[0][1] == assertCube.down[1][1] and assertCube.front[2][1] == assertCube.front[1][1]) == True)
         self.assertTrue((assertCube.down[1][0] == assertCube.down[1][1] and assertCube.left[2][1] == assertCube.left[1][1]) == True)
-        self.assertTrue((assertCube.down[1][2] == assertCube.down[1][1] and assertCube.right[2][1] == assertCube.right[1][1]) == True)           
+        self.assertTrue((assertCube.down[1][2] == assertCube.down[1][1] and assertCube.right[2][1] == assertCube.right[1][1]) == True)
+        
+    def test_solveY004_ShouldSolveCrossWithFlippedCounterFrontFrontPieceAndDownBackRightPiece(self):
+        parms = {'op':'solve',
+                'cube':'wbbwbbroyrrorryobwwgwogggrbroryoboggbwbwyygoyyggrwyywo'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'wbbwbbroyrrorryobwwgwogggrbroryoboggbwbwyygoyyggrwyywo',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)           

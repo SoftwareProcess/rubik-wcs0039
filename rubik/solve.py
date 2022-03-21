@@ -151,7 +151,7 @@ def solveDownCross(cubeModel, result):
     downColor = cubeModel.down[1][1]
     upColor = cubeModel.up[1][1]
     frontColor = cubeModel.front[1][1]
-    rightColor = cubeModel.down[1][1]
+    rightColor = cubeModel.right[1][1]
     backColor = cubeModel.back[1][1]
     leftColor = cubeModel.front[1][1]
     
@@ -300,19 +300,6 @@ def solveDownCross(cubeModel, result):
         solution += 'FFrf'
     #check if front edge is in up of back
     elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == frontColor):
-        # F(cubeModel)
-        # F(cubeModel)
-        # R(cubeModel)
-        # R(cubeModel)
-        # L(cubeModel)
-        # L(cubeModel)
-        # U(cubeModel)
-        # U(cubeModel)
-        # R(cubeModel)
-        # R(cubeModel)
-        # L(cubeModel)
-        # L(cubeModel)
-        # solution += 'FFRRLLUURRLL'
         F(cubeModel)
         F(cubeModel)
         B(cubeModel) 
@@ -337,11 +324,292 @@ def solveDownCross(cubeModel, result):
         solution += 'FFBBDDfuRU'
     #check if front edge is in up of left 
     elif(cubeModel.up[1][0] == downColor and cubeModel.left[0][1] == frontColor):
-        pass
+        F(cubeModel)
+        F(cubeModel)
+        L(cubeModel)
+        L(cubeModel)
+        D(cubeModel)
+        F(cubeModel)
+        F(cubeModel)
+        solution += 'FFLLDFF'
     #check if front edge is flipped in up of left 
     elif(cubeModel.up[1][0] == frontColor and cubeModel.left[0][1] == downColor):
-        pass        
+        F(cubeModel)
+        F(cubeModel)
+        L(cubeModel)
+        L(cubeModel)
+        D(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        solution += 'FFLLDfuRU'
     
+    
+    #Put right edge in daisy position
+    #check if right edge is in down of front   
+    if(cubeModel.down[0][1] == downColor and cubeModel.front[2][1] == rightColor):
+        D(cubeModel)
+        R(cubeModel)
+        R(cubeModel)
+        solution += 'DRR'
+    #check if right edge is flipped in down of front (true solved position)
+    elif(cubeModel.down[0][1] == rightColor and  cubeModel.front[2][1] == downColor):
+        U(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        solution += 'UfuR'
+    #check if right edge is in down of right (true solved position)
+    elif(cubeModel.down[1][2] == downColor and cubeModel.right[2][1] == rightColor):
+        R(cubeModel)
+        R(cubeModel)
+        solution += 'RR'
+    #check if right edge is flipped in down of right (true solved)
+    elif(cubeModel.down[1][2] == rightColor and cubeModel.right[2][1] == downColor):
+        R(cubeModel)
+        U(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        solution += 'RUfu'
+    #check if right edge is in down of back
+    elif(cubeModel.down[2][1] == downColor and cubeModel.back[2][1] == rightColor):
+        d(cubeModel)
+        R(cubeModel)
+        R(cubeModel)
+        solution += 'dRR'
+    #check if right edge is flipped in down of back
+    elif(cubeModel.down[2][1] == rightColor and cubeModel.back[2][1] == downColor):
+        D(cubeModel)
+        D(cubeModel)
+        U(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        solution += 'DDUfuR'
+    #check if right edge is in down of left
+    elif(cubeModel.down[1][0] == downColor and cubeModel.left[2][1] == rightColor):
+        D(cubeModel)
+        D(cubeModel)
+        R(cubeModel)
+        R(cubeModel)
+        solution += 'DDRR'
+    #check if right edge is flipped in down of left
+    elif(cubeModel.down[1][0] == rightColor and cubeModel.left[2][1] == downColor):
+        D(cubeModel)
+        U(cubeModel)
+        f(cubeModel)
+        u(cubeModel)
+        R(cubeModel)
+        solution += 'DUfuR'
+    
+    #check if right edge is in clockwise of front/counter of right
+    elif(cubeModel.front[1][2] == downColor and cubeModel.right[1][0] == rightColor):
+        pass
+    #check if right edge is flipped in clockwise of front/counter of right 
+    elif(cubeModel.front[1][2] == rightColor and cubeModel.right[1][0] == downColor):
+        pass 
+    #check if right edge is in clockwise of right/counter of back
+    elif(cubeModel.right[1][2] == downColor and cubeModel.back[1][0] == rightColor):
+        pass
+    #check if right edge is flipped in clockwise of right/counter of back
+    elif(cubeModel.right[1][2] == rightColor and cubeModel.back[1][0] == downColor):    
+        pass
+    #check if right edge is in clockwise of back/ counter of left
+    elif(cubeModel.back[1][2] == downColor and cubeModel.left[1][0] == rightColor):
+        pass
+    #check if right edge is flipped in clockwise of back/ counter of left
+    elif(cubeModel.back[1][2] == rightColor and cubeModel.left[1][0] == downColor):
+        pass
+    #check if right edge is in counter of front/clockwise of left 
+    elif(cubeModel.left[1][2] == downColor and cubeModel.front[1][0] == rightColor):
+        pass
+    #check if right edge is flipped in counter of front/clockwise of left
+    elif(cubeModel.left[1][2] == rightColor and cubeModel.front[1][0] == downColor):
+        pass
+    
+    #check if right edge is in up of front 
+    elif(cubeModel.up[2][1] == downColor and cubeModel.front[0][1] == rightColor):
+        pass
+    #check if right edge is flipped in up of front 
+    elif(cubeModel.up[2][1] == rightColor and cubeModel.front[0][1] == downColor):
+        pass
+    #These up conditions are designed with the assumption that the two remaining top pieces might be solved, and thus avoid removing them
+    #check if right edge is in up of right
+    elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == rightColor):
+        pass
+    #check if right edge is flipped in up of right
+    elif(cubeModel.up[1][2] == rightColor and cubeModel.right[0][1] == downColor):
+        pass
+    #check if right edge is in up of back
+    elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == rightColor):
+        pass 
+    #check if right edge is flipped in up of back
+    elif(cubeModel.up[0][1] == rightColor and cubeModel.back[0][1] == downColor):
+        pass
+    #check if right edge is in up of left 
+    elif(cubeModel.up[1][0] == downColor and cubeModel.left[0][1] == rightColor):
+        pass
+    #check if right edge is flipped in up of left 
+    elif(cubeModel.up[1][0] == rightColor and cubeModel.left[0][1] == downColor):
+        pass  
+
+
+    #put back edge in daisy position
+    #check if back edge is in down of front   
+    if(cubeModel.down[0][1] == downColor and cubeModel.front[2][1] == backColor):
+        pass
+    #check if back edge is flipped in down of front (true solved position)
+    elif(cubeModel.down[0][1] == backColor and  cubeModel.front[2][1] == downColor):
+        pass
+    #check if back edge is in down of right (true solved position)
+    elif(cubeModel.down[1][2] == downColor and cubeModel.right[2][1] == backColor):
+        pass
+    #check if back edge is flipped in down of right
+    elif(cubeModel.down[1][2] == backColor and cubeModel.right[2][1] == downColor):
+        pass
+    #check if back edge is in down of back
+    elif(cubeModel.down[2][1] == downColor and cubeModel.back[2][1] == backColor):
+        pass
+    #check if back edge is flipped in down of back
+    elif(cubeModel.down[2][1] == backColor and cubeModel.back[2][1] == downColor):
+        pass
+    #check if back edge is in down of left
+    elif(cubeModel.down[1][0] == downColor and cubeModel.left[2][1] == backColor):
+        pass
+    #check if back edge is flipped in down of left
+    elif(cubeModel.down[1][0] == backColor and cubeModel.left[2][1] == downColor):
+        pass
+    
+    #check if back edge is in clockwise of front/counter of right
+    elif(cubeModel.front[1][2] == downColor and cubeModel.right[1][0] == backColor):
+        pass
+    #check if back edge is flipped in clockwise of front/counter of right 
+    elif(cubeModel.front[1][2] == backColor and cubeModel.right[1][0] == downColor):
+        pass 
+    #check if back edge is in clockwise of right/counter of back
+    elif(cubeModel.right[1][2] == downColor and cubeModel.back[1][0] == backColor):
+        pass
+    #check if back edge is flipped in clockwise of right/counter of back
+    elif(cubeModel.right[1][2] == backColor and cubeModel.back[1][0] == downColor):    
+        pass
+    #check if back edge is in clockwise of back/ counter of left
+    elif(cubeModel.back[1][2] == downColor and cubeModel.left[1][0] == backColor):
+        pass
+    #check if back edge is flipped in clockwise of back/ counter of left
+    elif(cubeModel.back[1][2] == backColor and cubeModel.left[1][0] == downColor):
+        pass
+    #check if back edge is in counter of front/clockwise of left 
+    elif(cubeModel.left[1][2] == downColor and cubeModel.front[1][0] == backColor):
+        pass
+    #check if back edge is flipped in counter of front/clockwise of left
+    elif(cubeModel.left[1][2] == backColor and cubeModel.front[1][0] == downColor):
+        pass
+    
+    #check if back edge is in up of front 
+    elif(cubeModel.up[2][1] == downColor and cubeModel.front[0][1] == backColor):
+        pass
+    #check if back edge is flipped in up of front 
+    elif(cubeModel.up[2][1] == backColor and cubeModel.front[0][1] == downColor):
+        pass
+    #These up conditions are designed with the assumption that the two remaining top pieces might be solved, and thus avoid removing them
+    #check if back edge is in up of right
+    elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == backColor):
+        pass
+    #check if back edge is flipped in up of right
+    elif(cubeModel.up[1][2] == backColor and cubeModel.right[0][1] == downColor):
+        pass
+    #check if back edge is in up of back
+    elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == backColor):
+        pass 
+    #check if back edge is flipped in up of back
+    elif(cubeModel.up[0][1] == backColor and cubeModel.back[0][1] == downColor):
+        pass
+    #check if back edge is in up of left 
+    elif(cubeModel.up[1][0] == downColor and cubeModel.left[0][1] == backColor):
+        pass
+    #check if back edge is flipped in up of left 
+    elif(cubeModel.up[1][0] == backColor and cubeModel.left[0][1] == downColor):
+        pass
+    
+    
+    #put left edge in daisy position
+    #check if left edge is in down of front   
+    if(cubeModel.down[0][1] == downColor and cubeModel.front[2][1] == leftColor):
+        pass
+    #check if left edge is flipped in down of front (true solved position)
+    elif(cubeModel.down[0][1] == leftColor and  cubeModel.front[2][1] == downColor):
+        pass
+    #check if left edge is in down of right (true solved position)
+    elif(cubeModel.down[1][2] == downColor and cubeModel.right[2][1] == leftColor):
+        pass
+    #check if left edge is flipped in down of right
+    elif(cubeModel.down[1][2] == leftColor and cubeModel.right[2][1] == downColor):
+        pass
+    #check if left edge is in down of back
+    elif(cubeModel.down[2][1] == downColor and cubeModel.back[2][1] == leftColor):
+        pass
+    #check if left edge is flipped in down of back
+    elif(cubeModel.down[2][1] == leftColor and cubeModel.back[2][1] == downColor):
+        pass
+    #check if left edge is in down of left
+    elif(cubeModel.down[1][0] == downColor and cubeModel.left[2][1] == leftColor):
+        pass
+    #check if left edge is flipped in down of left
+    elif(cubeModel.down[1][0] == leftColor and cubeModel.left[2][1] == downColor):
+        pass
+    
+    #check if left edge is in clockwise of front/counter of right
+    elif(cubeModel.front[1][2] == downColor and cubeModel.right[1][0] == leftColor):
+        pass
+    #check if left edge is flipped in clockwise of front/counter of right 
+    elif(cubeModel.front[1][2] == leftColor and cubeModel.right[1][0] == downColor):
+        pass 
+    #check if left edge is in clockwise of right/counter of back
+    elif(cubeModel.right[1][2] == downColor and cubeModel.back[1][0] == leftColor):
+        pass
+    #check if left edge is flipped in clockwise of right/counter of back
+    elif(cubeModel.right[1][2] == leftColor and cubeModel.back[1][0] == downColor):    
+        pass
+    #check if left edge is in clockwise of back/ counter of left
+    elif(cubeModel.back[1][2] == downColor and cubeModel.left[1][0] == leftColor):
+        pass
+    #check if left edge is flipped in clockwise of back/ counter of left
+    elif(cubeModel.back[1][2] == leftColor and cubeModel.left[1][0] == downColor):
+        pass
+    #check if left edge is in counter of front/clockwise of left 
+    elif(cubeModel.left[1][2] == downColor and cubeModel.front[1][0] == leftColor):
+        pass
+    #check if left edge is flipped in counter of front/clockwise of left
+    elif(cubeModel.left[1][2] == leftColor and cubeModel.front[1][0] == downColor):
+        pass
+    
+    #check if left edge is in up of front 
+    elif(cubeModel.up[2][1] == downColor and cubeModel.front[0][1] == leftColor):
+        pass
+    #check if left edge is flipped in up of front 
+    elif(cubeModel.up[2][1] == leftColor and cubeModel.front[0][1] == downColor):
+        pass
+    #These up conditions are designed with the assumption that the two remaining top pieces might be solved, and thus avoid removing them
+    #check if left edge is in up of right
+    elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == leftColor):
+        pass
+    #check if left edge is flipped in up of right
+    elif(cubeModel.up[1][2] == leftColor and cubeModel.right[0][1] == downColor):
+        pass
+    #check if left edge is in up of back
+    elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == leftColor):
+        pass 
+    #check if left edge is flipped in up of back
+    elif(cubeModel.up[0][1] == leftColor and cubeModel.back[0][1] == downColor):
+        pass
+    #check if left edge is in up of left 
+    elif(cubeModel.up[1][0] == downColor and cubeModel.left[0][1] == leftColor):
+        pass
+    #check if left edge is flipped in up of left 
+    elif(cubeModel.up[1][0] == leftColor and cubeModel.left[0][1] == downColor):
+        pass
+        
     #rotating edges from daisy position to solved position   
     F(cubeModel)
     F(cubeModel)
