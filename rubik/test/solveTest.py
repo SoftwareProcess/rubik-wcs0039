@@ -417,7 +417,7 @@ class SolveTest(unittest.TestCase):
     
     def test_solveH034_ShouldSolveCrossWithFlippedUpFrontPiece(self):
         parms = {'op':'solve',
-                'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrhborwgbyo'}
+                'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrgborwgbyo'}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
@@ -425,7 +425,7 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution', None)
         #putting provided solution into solve as 'rotate' to check if bottom cross is solved
         assertParms = {'op':'solve',
-                       'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrhborwgbyo',
+                       'cube':'ywwrbbyoygroyrybowwgyrgoggrgoryobwgrowbwywbbrgborwgbyo',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)
