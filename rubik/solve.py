@@ -183,12 +183,11 @@ def solveDownCross(cubeModel, result):
         solution += 'uRRU'
     #check if front edge is flipped in down of right
     elif(cubeModel.down[1][2] == frontColor and cubeModel.right[2][1] == downColor):
-        # u(cubeModel)
-        # R(cubeModel)
-        # U(cubeModel)
-        # f(cubeModel)
-        # solution += 'uRUf'
-        pass
+        u(cubeModel)
+        R(cubeModel)
+        U(cubeModel)
+        f(cubeModel)
+        solution += 'uRUf'
     #check if front edge is in down of back
     elif(cubeModel.down[2][1] == downColor and cubeModel.back[2][1] == frontColor):
         pass
