@@ -602,4 +602,58 @@ class SolveTest(unittest.TestCase):
         assertString = assertResult.get('cube', None)
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
-        self.assertTrue(solve.checkDownCross(assertCube) == True)          
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
+        
+    def test_solveY006_ShouldSolveCrossOfScrambledCubed(self):
+        parms = {'op':'solve',
+                'cube':'wrryorrbyyowbwgogybogwrbbrywybwybgwwoyogbwrybgogrgorgo'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'wrryorrbyyowbwgogybogwrbbrywybwybgwwoyogbwrybgogrgorgo',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
+        
+    def test_solveY007_ShouldSolveCrossOfAnotherScrambledCubed(self):
+        parms = {'op':'solve',
+                'cube':'bgrbwbwwywoyygygbgbgoryyowryyogbwwrbgwrorbyogorrgorbow'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'bgrbwbwwywoyygygbgbgoryyowryyogbwwrbgwrorbyogorrgorbow',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)
+
+    def test_solveY008_ShouldSolveCrossOfAThirdScrambledCubed(self):
+        parms = {'op':'solve',
+                'cube':'gogygwgwrowobrogwbbrbgbyrybryroorwgwybygwoybyogwryrobw'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'gogygwgwrowobrogwbbrbgbyrybryroorwgwybygwoybyogwryrobw',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkDownCross(assertCube) == True)         
