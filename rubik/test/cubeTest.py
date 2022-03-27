@@ -84,3 +84,4 @@ class CubeTest(unittest.TestCase):
         testCube.turnCubeRight()
         cubeString = testCube.convertCube()
         assertString = 'yrgwwwrwowbwogygbybybrywgrryyrgbbwgwogoorybbogryooobgr'
+        self.assertEqual(cubeString, assertString)        
