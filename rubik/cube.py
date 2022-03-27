@@ -83,7 +83,7 @@ class Cube:
         self.up = self.cube[4]
         self.down = self.cube[5]
         
-    #turns the faces of the cube rightward (i.e. the front face becomes the right face
+    #turns the faces of the cube rightward (i.e. the front face becomes the right face)
     def turnCubeRight(self):
         cubeCopy = copy.deepcopy(self)
         self.cube[0] = cubeCopy.cube[3]
@@ -94,3 +94,7 @@ class Cube:
         self.right = self.cube[1]
         self.back = self.cube[2]
         self.left = self.cube[3]
+        
+    #turns the faces of the cube leftward (i.e. the right face becomes the front face)
+    def turnCubeLeft(self):
+        pass
