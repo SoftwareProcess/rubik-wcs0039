@@ -1,3 +1,5 @@
+import copy
+
 class Cube:
     '''
     Rubik's cube
@@ -80,3 +82,7 @@ class Cube:
         self.left = self.cube[3]
         self.up = self.cube[4]
         self.down = self.cube[5]
+        
+    #turns the faces of the cube rightward (i.e. the front face becomes the right face
+    def turnCubeRight(self):
+        pass
