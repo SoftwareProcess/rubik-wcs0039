@@ -83,4 +83,4 @@ class CubeTest(unittest.TestCase):
         testCube.convertString(cubeString)
         testCube.turnCubeRight()
         cubeString = testCube.convertCube()
-        assertString = 'yrgwwwrwowbwogygbybybrywgrryyrgbbwgwboobrgoyoyorroggob'
+        assertString = 'yrgwwwrwowbwogygbybybrywgrryyrgbbwgwogoorybbogryooobgr'
