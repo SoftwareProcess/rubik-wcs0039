@@ -880,4 +880,7 @@ def checkDownCross(cubeModel):
             return True
     else:
         return False
+    
+def checkFirstLayer(cubeModel):
+    pass
         
