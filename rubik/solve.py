@@ -889,6 +889,18 @@ def checkFirstLayer(cubeModel):
         color = cubeModel.down[1][1]
         #checking down corners
         if(cubeModel.down[0][0] == color and cubeModel.down[0][2] == color and cubeModel.down[2][0] == color and cubeModel.down[2][2] == color):
+            color = cubeModel.front[1][1]
+            if(cubeModel.front[2][0] != color or cubeModel.front[2][2] != color):
+                return False
+            color = cubeModel.right[1][1]
+            if(cubeModel.right[2][0] != color or cubeModel.right[2][2] != color):
+                return False
+            color = cubeModel.back[1][1]
+            if(cubeModel.back[2][0] != color and cubeModel.back[2][2] != color):
+                return False
+            color = cubeModel.left[1][1]
+            if(cubeModel.left[2][0] != color and cubeModel.left[2][2] != color):
+                return False
             return True
         else:
             return False
