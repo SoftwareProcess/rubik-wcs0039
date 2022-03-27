@@ -93,4 +93,13 @@ class CubeTest(unittest.TestCase):
         testCube.turnCubeLeft()
         cubeString = testCube.convertCube()
         assertString = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
-        self.assertEqual(cubeString, assertString)      
+        self.assertEqual(cubeString, assertString)
+        
+    def test_cube_H010_ShouldTurnScrambledCubeFacesLeft(self):
+        cubeString = 'ygyoggyyoobwrwwbyrobbgbbyygwwooywbwwrwgroygobrgwrrorrg'
+        testCube = rubik.Cube()
+        testCube.convertString(cubeString)
+        testCube.turnCubeLeft()
+        cubeString = testCube.convertCube()
+        assertString = 'obwrwwbyrobbgbbyygwwooywbwwygyoggyyogrroowbygwoggrrrrr'
+        self.assertEqual(cubeString, assertString)         
