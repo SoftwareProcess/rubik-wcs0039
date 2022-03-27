@@ -1,6 +1,7 @@
 import copy
 import rubik.cube as rubik
 import rubik.check as check
+from pickle import FALSE
 
 def _solve(parms):
     result = check._check(parms) #using _.check to validate cube
@@ -882,5 +883,8 @@ def checkDownCross(cubeModel):
         return False
     
 def checkFirstLayer(cubeModel):
-    pass
+    if(checkDownCross(cubeModel) == False):
+        return False
+    else:
+        return True
         
