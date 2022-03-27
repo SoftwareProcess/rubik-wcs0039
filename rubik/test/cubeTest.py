@@ -84,4 +84,13 @@ class CubeTest(unittest.TestCase):
         testCube.turnCubeRight()
         cubeString = testCube.convertCube()
         assertString = 'yrgwwwrwowbwogygbybybrywgrryyrgbbwgwogoorybbogryooobgr'
-        self.assertEqual(cubeString, assertString)        
+        self.assertEqual(cubeString, assertString) 
+        
+    def test_cube_H007_ShouldTurnSolvedCubeFacesRight(self):
+        cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        testCube = rubik.Cube()
+        testCube.convertString(cubeString)
+        testCube.turnCubeLeft()
+        cubeString = testCube.convertCube()
+        assertString = 'rrrrrrrrrgggggggggooooooooobbbbbbbbbyyyyyyyyywwwwwwwww'
+        self.assertEqual(cubeString, assertString)      
