@@ -886,5 +886,9 @@ def checkFirstLayer(cubeModel):
     if(checkDownCross(cubeModel) == False):
         return False
     else:
-        return True
-        
+        color = cubeModel.down[1][1]
+        #checking down corners
+        if(cubeModel.down[0][0] == color and cubeModel.down[0][2] == color and cubeModel.down[2][0] == color and cubeModel.down[2][2] == color):
+            return True
+        else:
+            return False
