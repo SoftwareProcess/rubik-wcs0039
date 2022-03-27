@@ -662,4 +662,10 @@ class SolveTest(unittest.TestCase):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
-        self.assertTrue(solve.checkFirstLayer(cubeTest) == True)             
+        self.assertTrue(solve.checkFirstLayer(cubeTest) == True) 
+        
+    def test_SolveH043_CheckFirstLayerShouldReturnFalseOnSolvedBottomCross(self):
+        cubeString = 'gooybgwbyyybyrbbrwobbrgbrgwrgroorbooyywryoygggwowwwrwg'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        self.assertFalse(solve.checkFirstLayer(cubeTest) == True)                
