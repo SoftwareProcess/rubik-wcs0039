@@ -85,6 +85,8 @@ class Cube:
         
     #turns the faces of the cube rightward (i.e. the front face becomes the right face)
     def turnCubeRight(self):
+        self.faceCounterclockwise(4)
+        self.faceClockwise(5)        
         cubeCopy = copy.deepcopy(self)
         self.cube[0] = cubeCopy.cube[3]
         self.cube[1] = cubeCopy.cube[0]
