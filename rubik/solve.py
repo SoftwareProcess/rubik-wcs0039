@@ -924,7 +924,10 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
         solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in back/left up position
     if(checkCorner((cubeModel.up[0][0], cubeModel.back[0][2], cubeModel.left[0][0]), downColor, frontColor, rightColor)):
-        pass
+        U(cubeModel)
+        U(cubeModel)
+        solution += 'UU'
+        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in left/front up position
     if(checkCorner((cubeModel.up[2][0], cubeModel.left[0][2], cubeModel.front[0][0]), downColor, frontColor, rightColor)):
         pass
