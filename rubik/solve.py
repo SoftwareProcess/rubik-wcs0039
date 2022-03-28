@@ -1,7 +1,6 @@
 import copy
 import rubik.cube as rubik
 import rubik.check as check
-from pickle import FALSE
 
 def _solve(parms):
     result = check._check(parms) #using _.check to validate cube
@@ -866,8 +865,66 @@ def solveDownCross(cubeModel):
     return solution
 
 def solveDownCorners(cubeModel):
-    pass
+    solution = ''
+    if(checkFirstLayer(cubeModel) == True):
+        return solution
+    
+    downColor = cubeModel.down[1][1]
+    frontColor = cubeModel.front[1][1]
+    rightColor = cubeModel.right[1][1]
+    backColor = cubeModel.back[1][1]
+    leftColor = cubeModel.left[1][1]
+    
+    #Solve front/right corner
+    solution += locateCorner(cubeModel, downColor, frontColor, rightColor)
+    
+    return solution
 
+#Checks if corner is the correct corner
+def checkCorner(corner, colorOne, colorTwo, colorThree):
+    for square in corner:
+        if(square != colorOne and square != colorTwo and square != colorThree):
+            return False
+        else:
+            pass
+    return True
+
+def leftTrigger(cubeModel):
+        l(cubeModel)
+        u(cubeModel)
+        L(cubeModel)
+        U(cubeModel)
+        return 'luLU'
+        
+def rightTrigger(cubeModel):
+        R(cubeModel)
+        U(cubeModel)
+        r(cubeModel)
+        u(cubeModel)
+        return 'RUru'
+
+#Performs right triggers until corner is solved
+def solveDownCorner(cubeModel, downColor, frontColor, rightColor):
+    solution = ''
+    while(cubeModel.down[0][2] != downColor or cubeModel.front[2][2] != frontColor or cubeModel.right[2][0] != rightColor):
+        solution += rightTrigger(cubeModel)
+    return solution
+
+#Finds which position given corner is and solves it based on position
+#Colors are relative (i.e. frontColor refers to whichever color is front at current time, not original front)
+def locateCorner(cubeModel, downColor, frontColor, rightColor):
+    solution = ''
+    #corner in front/right up position
+    if(checkCorner((cubeModel.up[2][2], cubeModel.front[0][2], cubeModel.right[0][0]), downColor, frontColor, rightColor) == True):
+        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)        
+    #corner in right/back up position
+    if(checkCorner((cubeModel.up[0][2], cubeModel.right[0][2], cubeModel.back[0][0]), downColor, frontColor, rightColor) == True):
+        pass
+    
+        
+    
+    return solution
+  
 def checkDownCross(cubeModel):  
     color = cubeModel.down[1][1] # down center color
     #checking down face cross squares
