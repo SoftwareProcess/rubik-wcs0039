@@ -48,7 +48,8 @@ def _solve(parms):
         result = cubeDict
     else:
         #making solution the first key in the dictionary
-        solution = solveDownCross(cubeModel, result)
+        solution = solveDownCross(cubeModel)
+        solution += solveDownCorners(cubeModel)
         solutionDict = dict()
         solutionDict['solution'] = solution
         solutionDict.update(result)
@@ -151,7 +152,7 @@ def d(cubeModel):
     cubeModel.back[2] = copyModel.left[2]
     cubeModel.left[2] = copyModel.front[2]
     
-def solveDownCross(cubeModel, result):
+def solveDownCross(cubeModel):
     solution = ''
     if(checkDownCross(cubeModel) == True):
         return solution
@@ -863,6 +864,9 @@ def solveDownCross(cubeModel, result):
     L(cubeModel)
     solution += 'FFRRBBLL'
     return solution
+
+def solveDownCorners(cubeModel):
+    pass
 
 def checkDownCross(cubeModel):  
     color = cubeModel.down[1][1] # down center color
