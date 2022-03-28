@@ -920,9 +920,7 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
     #corner in right/back up position
     if(checkCorner((cubeModel.up[0][2], cubeModel.right[0][2], cubeModel.back[0][0]), downColor, frontColor, rightColor) == True):
         pass
-    
-        
-    
+
     return solution
   
 def checkDownCross(cubeModel):  
