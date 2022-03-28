@@ -914,15 +914,33 @@ def solveDownCorner(cubeModel, downColor, frontColor, rightColor):
 #Colors are relative (i.e. frontColor refers to whichever color is front at current time, not original front)
 def locateCorner(cubeModel, downColor, frontColor, rightColor):
     solution = ''
-    #corner in front/right up position
-    if(checkCorner((cubeModel.up[2][2], cubeModel.front[0][2], cubeModel.right[0][0]), downColor, frontColor, rightColor) == True):
+    #Corner in front/right up position
+    if(checkCorner((cubeModel.up[2][2], cubeModel.front[0][2], cubeModel.right[0][0]), downColor, frontColor, rightColor)):
         solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)        
-    #corner in right/back up position
-    if(checkCorner((cubeModel.up[0][2], cubeModel.right[0][2], cubeModel.back[0][0]), downColor, frontColor, rightColor) == True):
+    #Corner in right/back up position
+    if(checkCorner((cubeModel.up[0][2], cubeModel.right[0][2], cubeModel.back[0][0]), downColor, frontColor, rightColor)):
         U(cubeModel)
         solution += 'U'
         solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
-
+    #Corner in back/left up position
+    if(checkCorner((cubeModel.up[0][0], cubeModel.back[0][2], cubeModel.left[0][0]), downColor, frontColor, rightColor)):
+        pass
+    #Corner in left/front up position
+    if(checkCorner((cubeModel.up[2][0], cubeModel.left[0][2], cubeModel.front[0][0]), downColor, frontColor, rightColor)):
+        pass
+    #Corner in front/right down position (solved)
+    if(checkCorner((cubeModel.down[0][2], cubeModel.front[2][2], cubeModel.right[2][0]), downColor, frontColor, rightColor)):
+        pass
+    #Corner in right/back down position
+    if(checkCorner((cubeModel.down[2][2], cubeModel.right[2][2], cubeModel.back[2][0]), downColor, frontColor, rightColor)):
+        pass
+    #Corner in back/left down position
+    if(checkCorner((cubeModel.down[2][0], cubeModel.back[2][2], cubeModel.left[2][0]), downColor, frontColor, rightColor)):
+        pass
+    #corner in left/front down position
+    if(checkCorner((cubeModel.down[0][0], cubeModel.left[2][2], cubeModel.front[2][0]), downColor, frontColor, rightColor)):
+        pass
+    
     return solution
   
 def checkDownCross(cubeModel):  
