@@ -750,7 +750,7 @@ class SolveTest(unittest.TestCase):
         
     def test_SolveH049_ShouldSolveFrontRightCornerInDownRBOnMostlySolvedFirstLayer(self):
         parms = {'op':'solve',
-                'cube':''}
+                'cube':'yooybgbbobyrrrbgrbwyrygbrggyrgoorooobogbygrgywwywwwwww'}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
@@ -758,11 +758,14 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution', None)
         #putting provided solution into solve as 'rotate' to check if bottom cross is solved
         assertParms = {'op':'solve',
-                       'cube': '',
+                       'cube': 'yooybgbbobyrrrbgrbwyrygbrggyrgoorooobogbygrgywwywwwwww',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
-        self.assertTrue(assertCube.front[2][2] == assertCube.front[1][1] and assertCube.right[2][0] == assertCube.right[1][1] and assertCube.down[0][2] == assertCube.dwon[1][1])
-                        
+        self.assertTrue(assertCube.front[2][2] == assertCube.front[1][1] and assertCube.right[2][0] == assertCube.right[1][1] and assertCube.down[0][2] == assertCube.down[1][1])
+                           
+        
+
+        
