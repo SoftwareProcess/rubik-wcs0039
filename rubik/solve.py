@@ -878,6 +878,15 @@ def solveDownCorners(cubeModel):
     #Solve front/right corner
     solution += locateCorner(cubeModel, downColor, frontColor, rightColor)
     
+    #solve right/back corner 
+    pass
+
+    #solve back/left corner
+    pass
+
+    #solve left/front corner
+    pass
+    
     return solution
 
 #Checks if corner is the correct corner
