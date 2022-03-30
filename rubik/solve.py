@@ -920,19 +920,16 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
     #Corner in right/back up position
     if(checkCorner((cubeModel.up[0][2], cubeModel.right[0][2], cubeModel.back[0][0]), downColor, frontColor, rightColor)):
         U(cubeModel)
-        solution += 'U'
-        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
+        solution += 'U' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in back/left up position
     if(checkCorner((cubeModel.up[0][0], cubeModel.back[0][2], cubeModel.left[0][0]), downColor, frontColor, rightColor)):
         U(cubeModel)
         U(cubeModel)
-        solution += 'UU'
-        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
+        solution += 'UU' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in left/front up position
     if(checkCorner((cubeModel.up[2][0], cubeModel.left[0][2], cubeModel.front[0][0]), downColor, frontColor, rightColor)):
         u(cubeModel)
-        solution += 'u'
-        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
+        solution += 'u' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in front/right down position (solved)
     if(checkCorner((cubeModel.down[0][2], cubeModel.front[2][2], cubeModel.right[2][0]), downColor, frontColor, rightColor)):
         pass
@@ -943,22 +940,19 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
         U(cubeModel)
         R(cubeModel)
         u(cubeModel)
-        solution += 'rUURu'
-        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
+        solution += 'rUURu' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in back/left down position
     if(checkCorner((cubeModel.down[2][0], cubeModel.back[2][2], cubeModel.left[2][0]), downColor, frontColor, rightColor)):
         L(cubeModel)
         U(cubeModel)
         U(cubeModel)
         l(cubeModel)
-        solution += 'LUUl'
-        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
+        solution += 'LUUl' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #corner in left/front down position
     if(checkCorner((cubeModel.down[0][0], cubeModel.left[2][2], cubeModel.front[2][0]), downColor, frontColor, rightColor)):
         solution += leftTrigger(cubeModel)
         u(cubeModel)
-        solution += 'u'
-        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
+        solution += 'u' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     
     return solution
   
