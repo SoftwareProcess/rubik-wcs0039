@@ -884,7 +884,11 @@ def solveDownCorners(cubeModel):
     D(cubeModel) 
     
     #solve back/left corner
-    pass
+    D(cubeModel)
+    D(cubeModel)
+    solution += 'DD' + locateCorner(cubeModel, downColor, backColor, leftColor) + 'DD'
+    D(cubeModel)
+    D(cubeModel)
 
     #solve left/front corner
     pass
