@@ -706,11 +706,11 @@ def solveDownCross(cubeModel):
         solution += 'uFUl'
     #check if left edge is in down of right 
     elif(cubeModel.down[1][2] == downColor and cubeModel.right[2][1] == leftColor):
-        B(cubeModel)
-        B(cubeModel)
+        D(cubeModel)
+        D(cubeModel)
         L(cubeModel)
         L(cubeModel)
-        solution += 'BBLL'
+        solution += 'DDLL'
     #check if left edge is flipped in down of right
     elif(cubeModel.down[1][2] == leftColor and cubeModel.right[2][1] == downColor):
         d(cubeModel)
