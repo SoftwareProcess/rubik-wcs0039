@@ -838,3 +838,23 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(assertCube.right[2][2] == assertCube.right[1][1] and assertCube.back[2][0] == assertCube.back[1][1] and assertCube.down[2][2] == assertCube.down[1][1])
         
+    def test_SolveH053_ShouldSolveBackLeftCornerInUpRBOnMostlySolvedFirstLayer(self):
+        parms = {'op':'solve',
+                'cube':'rryybrbbbggwgrgrrroyyogoggyboybobboorrgyyygbowwwwwwoww'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'rryybrbbbggwgrgrrroyyogoggyboybobboorrgyyygbowwwwwwoww',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkFirstLayer(assertCube) == True)
+        
+
+        
