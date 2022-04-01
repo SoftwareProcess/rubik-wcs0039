@@ -693,10 +693,10 @@ def solveDownCross(cubeModel):
     #put left edge in daisy position
     #check if left edge is in down of front   
     if(cubeModel.down[0][1] == downColor and cubeModel.front[2][1] == leftColor):
-        b(cubeModel)
+        d(cubeModel)
         L(cubeModel)
         L(cubeModel)
-        solution += 'bLL'
+        solution += 'dLL'
     #check if left edge is flipped in down of front 
     elif(cubeModel.down[0][1] == leftColor and  cubeModel.front[2][1] == downColor):
         u(cubeModel)
