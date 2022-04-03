@@ -151,6 +151,26 @@ def d(cubeModel):
     cubeModel.back[2] = copyModel.left[2]
     cubeModel.left[2] = copyModel.front[2]
     
+def doubleRotate(cubeModel, rotation):
+    if(rotation == 'F'):
+        F(cubeModel)
+        F(cubeModel)
+    elif(rotation == 'R'):
+        R(cubeModel)
+        R(cubeModel)
+    elif(rotation == 'B'):
+        B(cubeModel)
+        B(cubeModel)
+    elif(rotation == 'L'):
+        L(cubeModel)
+        L(cubeModel)
+    elif(rotation == 'U'):
+        U(cubeModel)
+        U(cubeModel)
+    elif(rotation == 'D'):
+        D(cubeModel)
+        D(cubeModel)
+    
 def solveDownCross(cubeModel):
     solution = ''
     if(checkDownCross(cubeModel) == True):
@@ -175,11 +195,9 @@ def solveDownCross(cubeModel):
     u(cubeModel)
     
     #solve back edge
-    U(cubeModel)
-    U(cubeModel)
+    doubleRotate(cubeModel, 'U')
     solution += 'UU' + locateBottomEdge(cubeModel, downColor, backColor) + 'UU'
-    U(cubeModel)
-    U(cubeModel)
+    doubleRotate(cubeModel, 'U')
     
     #solve left edge
     u(cubeModel)
@@ -188,23 +206,19 @@ def solveDownCross(cubeModel):
     
     
     #rotating edges from daisy position to solved position   
-    F(cubeModel)
-    F(cubeModel)
-    R(cubeModel)
-    R(cubeModel)
-    B(cubeModel)
-    B(cubeModel) 
-    L(cubeModel)
-    L(cubeModel)
+    doubleRotate(cubeModel, 'F')
+    doubleRotate(cubeModel, 'R')
+    doubleRotate(cubeModel, 'B') 
+    doubleRotate(cubeModel, 'L')
     solution += 'FFRRBBLL'
     return solution 
     
+#Locates and puts a bottom edge in daisy position
 def locateBottomEdge(cubeModel, downColor, frontColor):
     solution = ''
     #check if front edge is in down of front (true solved position)
     if(cubeModel.down[0][1] == downColor and cubeModel.front[2][1] == frontColor):
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'F')
         solution += 'FF'
     #check if front edge is flipped in down of front (true solved position)
     elif(cubeModel.down[0][1] == frontColor and  cubeModel.front[2][1] == downColor):
@@ -216,8 +230,7 @@ def locateBottomEdge(cubeModel, downColor, frontColor):
     #check if front edge is in down of right
     elif(cubeModel.down[1][2] == downColor and cubeModel.right[2][1] == frontColor):
         u(cubeModel)
-        R(cubeModel)
-        R(cubeModel)
+        doubleRotate(cubeModel, 'R')
         U(cubeModel)
         solution += 'uRRU'
     #check if front edge is flipped in down of right
@@ -229,10 +242,8 @@ def locateBottomEdge(cubeModel, downColor, frontColor):
         solution += 'uRUf'
     #check if front edge is in down of back
     elif(cubeModel.down[2][1] == downColor and cubeModel.back[2][1] == frontColor):
-        D(cubeModel)
-        D(cubeModel)
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'D')
+        doubleRotate(cubeModel, 'F')
         solution += 'DDFF'
     #check if front edge is flipped in down of back
     elif(cubeModel.down[2][1] == frontColor and cubeModel.back[2][1] == downColor):
@@ -245,8 +256,7 @@ def locateBottomEdge(cubeModel, downColor, frontColor):
     #check if front edge is in down of left
     elif(cubeModel.down[1][0] == downColor and cubeModel.left[2][1] == frontColor):
         D(cubeModel)
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'F')
         solution += 'DFF'
     #check if front edge is flipped in down of left
     elif(cubeModel.down[1][0] == frontColor and cubeModel.left[2][1] == downColor):
@@ -292,8 +302,7 @@ def locateBottomEdge(cubeModel, downColor, frontColor):
     #check if front edge is flipped in clockwise of back/ counter of left
     elif(cubeModel.back[1][2] == frontColor and cubeModel.left[1][0] == downColor):
         U(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
+        doubleRotate(cubeModel, 'L')
         u(cubeModel)
         F(cubeModel)
         solution += 'ULLuF'
@@ -321,40 +330,29 @@ def locateBottomEdge(cubeModel, downColor, frontColor):
         solution += 'FuRU'
     #check if front edge is in up of right
     elif(cubeModel.up[1][2] == downColor and cubeModel.right[0][1] == frontColor):
-        F(cubeModel)
-        F(cubeModel)
-        R(cubeModel)
-        R(cubeModel)
+        doubleRotate(cubeModel, 'F')
+        doubleRotate(cubeModel, 'R')
         d(cubeModel)
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'F')
         solution += 'FFRRdFF'
     #check if front edge is flipped in up of right
     elif(cubeModel.up[1][2] == frontColor and cubeModel.right[0][1] == downColor):
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'F')
         r(cubeModel)
         f(cubeModel)
         solution += 'FFrf'
     #check if front edge is in up of back
     elif(cubeModel.up[0][1] == downColor and cubeModel.back[0][1] == frontColor):
-        F(cubeModel)
-        F(cubeModel)
-        B(cubeModel) 
-        B(cubeModel)
-        D(cubeModel)
-        D(cubeModel)
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'F')
+        doubleRotate(cubeModel, 'B')
+        doubleRotate(cubeModel, 'D')
+        doubleRotate(cubeModel, 'F')
         solution += 'FFBBDDFF' 
     #check if front edge is flipped in up of back
     elif(cubeModel.up[0][1] == frontColor and cubeModel.back[0][1] == downColor):
-        F(cubeModel)
-        F(cubeModel)
-        B(cubeModel) 
-        B(cubeModel)
-        D(cubeModel)
-        D(cubeModel)
+        doubleRotate(cubeModel, 'F')
+        doubleRotate(cubeModel, 'B')
+        doubleRotate(cubeModel, 'D')
         f(cubeModel)
         u(cubeModel)
         R(cubeModel)
@@ -362,20 +360,15 @@ def locateBottomEdge(cubeModel, downColor, frontColor):
         solution += 'FFBBDDfuRU'
     #check if front edge is in up of left 
     elif(cubeModel.up[1][0] == downColor and cubeModel.left[0][1] == frontColor):
-        F(cubeModel)
-        F(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
+        doubleRotate(cubeModel, 'F')
+        doubleRotate(cubeModel, 'L')
         D(cubeModel)
-        F(cubeModel)
-        F(cubeModel)
+        doubleRotate(cubeModel, 'F')
         solution += 'FFLLDFF'
     #check if front edge is flipped in up of left 
     elif(cubeModel.up[1][0] == frontColor and cubeModel.left[0][1] == downColor):
-        F(cubeModel)
-        F(cubeModel)
-        L(cubeModel)
-        L(cubeModel)
+        doubleRotate(cubeModel, 'F')
+        doubleRotate(cubeModel, 'L')
         D(cubeModel)
         f(cubeModel)
         u(cubeModel)
@@ -405,11 +398,9 @@ def solveDownCorners(cubeModel):
     D(cubeModel) 
     
     #solve back/left corner
-    D(cubeModel)
-    D(cubeModel)
+    doubleRotate(cubeModel, 'D')
     solution += 'DD' + locateCorner(cubeModel, downColor, backColor, leftColor) + 'DD'
-    D(cubeModel)
-    D(cubeModel)
+    doubleRotate(cubeModel, 'D')
 
     #solve left/front corner
     D(cubeModel)
@@ -461,29 +452,26 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
         solution += 'U' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in back/left up position
     if(checkCorner((cubeModel.up[0][0], cubeModel.back[0][2], cubeModel.left[0][0]), downColor, frontColor, rightColor)):
-        U(cubeModel)
-        U(cubeModel)
+        doubleRotate(cubeModel, 'U')
         solution += 'UU' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in left/front up position
     if(checkCorner((cubeModel.up[2][0], cubeModel.left[0][2], cubeModel.front[0][0]), downColor, frontColor, rightColor)):
         u(cubeModel)
         solution += 'u' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
-    #Corner in front/right down position (solved)
+    #Corner in front/right down position (solved position)
     if(checkCorner((cubeModel.down[0][2], cubeModel.front[2][2], cubeModel.right[2][0]), downColor, frontColor, rightColor)):
-        pass
+        solution += solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in right/back down position
     if(checkCorner((cubeModel.down[2][2], cubeModel.right[2][2], cubeModel.back[2][0]), downColor, frontColor, rightColor)):
         r(cubeModel)
-        U(cubeModel)
-        U(cubeModel)
+        doubleRotate(cubeModel, 'U')
         R(cubeModel)
         u(cubeModel)
         solution += 'rUURu' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #Corner in back/left down position
     if(checkCorner((cubeModel.down[2][0], cubeModel.back[2][2], cubeModel.left[2][0]), downColor, frontColor, rightColor)):
         L(cubeModel)
-        U(cubeModel)
-        U(cubeModel)
+        doubleRotate(cubeModel, 'U')
         l(cubeModel)
         solution += 'LUUl' + solveDownCorner(cubeModel, downColor, frontColor, rightColor)
     #corner in left/front down position
