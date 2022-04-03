@@ -947,7 +947,25 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstLayer(assertCube) == True)
         
-    def test_SolveY013_ShouldSolveFirstLayerOfFailedIteration2AcceptanceTestCube(self):
+    def test_SolveY014_ShouldSolveFirstLayerOfThirdScrambledCube(self):
+        parms = {'op':'solve',
+                'cube':'ogyybrbrrgbgwrygwbwwrggrwogygyborrywboooyobworgwbwbyyo'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        #putting provided solution into solve as 'rotate' to check if bottom cross is solved
+        assertParms = {'op':'solve',
+                       'cube':'ogyybrbrrgbgwrygwbwwrggrwogygyborrywboooyobworgwbwbyyo',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkFirstLayer(assertCube) == True)
+        
+    def test_SolveY015_ShouldSolveFirstLayerOfFailedIteration2AcceptanceTestCube(self):
         parms = {'op':'solve',
                 'cube':'EEtEttEttjOOOjjOjjEttEEtEEtOjjjOOjOOAAAAnAnAnnnnnAnAnA'}
         result = solve._solve(parms)
