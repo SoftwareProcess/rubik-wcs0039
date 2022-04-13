@@ -997,7 +997,7 @@ class SolveTest(unittest.TestCase):
         self.assertTrue(solve.checkFirstTwoLayers(cubeTest) == False)
         
     def test_SolveH057_CheckFirstTwoLayersShouldReturnTrueOnSolvedF2L(self):
-        cubeString = 'oyyobobbbrroyrgrrrbbrogbgggyrgrobooobyyyyhyggwwwwwwwww'
+        cubeString = 'obbbbbbbbryrrrrrrrggoggggggbygooooooyyyryoyyywwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
         self.assertTrue(solve.checkFirstTwoLayers(cubeTest) == True)
