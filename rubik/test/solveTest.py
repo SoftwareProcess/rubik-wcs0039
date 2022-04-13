@@ -989,3 +989,9 @@ class SolveTest(unittest.TestCase):
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
         self.assertTrue(solve.checkSecondLayer(cubeTest) == True)
+    
+    def test_SolveH056_CheckSecondLayerShouldReturnFalseOnUnSolvedSecondLayer(self):
+        cubeString = 'oyyobobbbrroyrgrrrbbrogbgggyrgrobooobyyyyhyggwwwwwwwww'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        self.assertTrue(solve.checkSecondLayer(cubeTest) == False)
