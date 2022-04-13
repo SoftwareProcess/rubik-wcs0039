@@ -522,3 +522,6 @@ def checkFirstLayer(cubeModel):
             return True
         else:
             return False
+        
+def checkSecondLayer(cubeModel):
+    pass

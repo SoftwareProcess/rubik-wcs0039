@@ -983,3 +983,9 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkDownCross(assertCube) == True)
             
+            
+    def test_SolveH054_CheckSecondLayerShouldReturnTrueOnSolvedCube(self):
+        cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        self.assertTrue(solve.checkSecondLayer(cubeTest) == True)
