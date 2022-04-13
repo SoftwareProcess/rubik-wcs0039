@@ -984,14 +984,14 @@ class SolveTest(unittest.TestCase):
         self.assertTrue(solve.checkDownCross(assertCube) == True)
             
             
-    def test_SolveH055_CheckSecondLayerShouldReturnTrueOnSolvedCube(self):
+    def test_SolveH055_CheckFirstTwoLayersShouldReturnTrueOnSolvedCube(self):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
-        self.assertTrue(solve.checkSecondLayer(cubeTest) == True)
+        self.assertTrue(solve.checkFirstTwoLayers(cubeTest) == True)
     
-    def test_SolveH056_CheckSecondLayerShouldReturnFalseOnUnSolvedSecondLayer(self):
+    def test_SolveH056_CheckFirstTwoLayersShouldReturnFalseOnUnSolvedSecondLayer(self):
         cubeString = 'oyyobobbbrroyrgrrrbbrogbgggyrgrobooobyyyyhyggwwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
-        self.assertTrue(solve.checkSecondLayer(cubeTest) == False)
+        self.assertTrue(solve.checkFirstTwoLayers(cubeTest) == False)

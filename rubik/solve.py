@@ -508,10 +508,10 @@ def checkFirstLayer(cubeModel):
         #checking down corners
         if(cubeModel.down[0][0] == color and cubeModel.down[0][2] == color and cubeModel.down[2][0] == color and cubeModel.down[2][2] == color):
             color = cubeModel.front[1][1]
-            if(cubeModel.front[2][0] != color or cubeModel.front[2][2] != color):
+            if(cubeModel.front[2][0] != color and cubeModel.front[2][2] != color):
                 return False
             color = cubeModel.right[1][1]
-            if(cubeModel.right[2][0] != color or cubeModel.right[2][2] != color):
+            if(cubeModel.right[2][0] != color and cubeModel.right[2][2] != color):
                 return False
             color = cubeModel.back[1][1]
             if(cubeModel.back[2][0] != color and cubeModel.back[2][2] != color):
@@ -523,7 +523,8 @@ def checkFirstLayer(cubeModel):
         else:
             return False
         
-def checkSecondLayer(cubeModel):
+#checks if first and second layer are solved
+def checkFirstTwoLayers(cubeModel):
     if(checkFirstLayer(cubeModel) == False):
         return False
     else:
@@ -532,4 +533,12 @@ def checkSecondLayer(cubeModel):
         backColor = cubeModel.back[1][1]
         leftColor = cubeModel.left[1][1]
         
+        if(cubeModel.front[1][2] != frontColor and cubeModel.right[1][0] != rightColor):
+            return False
+        if(cubeModel.right[1][2] != rightColor and cubeModel.back[1][0] != backColor):
+            return False
+        if(cubeModel.back[1][2] != backColor and cubeModel.left[1][0] != leftColor):
+            return False
+        if(cubeModel.left[1][2] != leftColor and cubeModel.left):
+            return False
         return True
