@@ -524,4 +524,12 @@ def checkFirstLayer(cubeModel):
             return False
         
 def checkSecondLayer(cubeModel):
-    pass
+    if(checkFirstLayer(cubeModel) == False):
+        return False
+    else:
+        frontColor = cubeModel.front[1][1]
+        rightColor = cubeModel.right[1][1]
+        backColor = cubeModel.back[1][1]
+        leftColor = cubeModel.left[1][1]
+        
+        return True
