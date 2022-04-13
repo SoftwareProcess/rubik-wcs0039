@@ -981,8 +981,7 @@ class SolveTest(unittest.TestCase):
         assertString = assertResult.get('cube', None)
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
-        self.assertTrue(solve.checkDownCross(assertCube) == True)
-            
+        self.assertTrue(solve.checkDownCross(assertCube) == True)    
             
     def test_SolveH055_CheckFirstTwoLayersShouldReturnTrueOnSolvedCube(self):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
@@ -1001,3 +1000,10 @@ class SolveTest(unittest.TestCase):
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
         self.assertTrue(solve.checkFirstTwoLayers(cubeTest) == True)
+        
+    def test_solveH058_RightFrontTriggerShouldPerformCorrectRotationsOnSolvedCube(self):
+        cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        assertString = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
+        self.assertTrue(cubeTest.convertCube() == assertString)

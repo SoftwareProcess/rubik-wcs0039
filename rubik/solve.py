@@ -431,6 +431,11 @@ def rightTrigger(cubeModel):
         r(cubeModel)
         u(cubeModel)
         return 'RUru'
+#These trigger functions are the equivalent of perorming a left or right trigger on a face other than the front face
+#The first word in the function name indicates which face is being treated is 'front' and the second is which face is being rotated
+def rightFrontTrigger(cubeModel):
+    pass
+
 
 #Performs right triggers until corner is solved
 def solveDownCorner(cubeModel, downColor, frontColor, rightColor):
