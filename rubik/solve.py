@@ -419,21 +419,26 @@ def checkCorner(corner, colorOne, colorTwo, colorThree):
     return True
 
 def leftTrigger(cubeModel):
-        l(cubeModel)
-        u(cubeModel)
-        L(cubeModel)
-        U(cubeModel)
-        return 'luLU'
+    l(cubeModel)
+    u(cubeModel)
+    L(cubeModel)
+    U(cubeModel)
+    return 'luLU'
         
 def rightTrigger(cubeModel):
-        R(cubeModel)
-        U(cubeModel)
-        r(cubeModel)
-        u(cubeModel)
-        return 'RUru'
+    R(cubeModel)
+    U(cubeModel)
+    r(cubeModel)
+    u(cubeModel)
+    return 'RUru'
 #These trigger functions are the equivalent of perorming a left or right trigger on a face other than the front face
 #The first word in the function name indicates which face is being treated is 'front' and the second is which face is being rotated
 def rightFrontTrigger(cubeModel):
+    # f(cubeModel)
+    # u(cubeModel)
+    # F(cubeModel)
+    # U(cubeModel)
+    # return 'fuFU'
     pass
 
 

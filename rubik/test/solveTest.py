@@ -1005,5 +1005,6 @@ class SolveTest(unittest.TestCase):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
+        solve.rightFrontTrigger(cubeTest)
         assertString = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
-        self.assertTrue(cubeTest.convertCube() == assertString)
+        self.assertEqual(cubeTest.convertCube(), assertString)
