@@ -1024,3 +1024,11 @@ class SolveTest(unittest.TestCase):
         solve.backRightTrigger(cubeTest)
         assertString = 'rrbbbbbbbyrrrrbrrywggygggggoobooooooyygyygyyowwwwwwwwr'
         self.assertEqual(cubeTest.convertCube(), assertString)
+        
+    def test_solveH061_BackLeftTriggerShouldPerformCorrectRotationsOnSolvedCube(self):
+        cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        solve.backRightTrigger(cubeTest)
+        assertString = 'boobbbbbbbrrrrrrrrggwggygggooybooyoogyygyyryywwwwwwoww'
+        self.assertEqual(cubeTest.convertCube(), assertString)
