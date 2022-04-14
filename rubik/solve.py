@@ -532,19 +532,39 @@ def solveMiddleEdges(cubeModel):
     if(checkFirstTwoLayers(cubeModel) == True):
         return solution
     
-    downColor = cubeModel.down[1][1]
+    upColor = cubeModel.up[1][1]
     frontColor = cubeModel.front[1][1]
     rightColor = cubeModel.right[1][1]
     backColor = cubeModel.back[1][1]
     leftColor = cubeModel.left[1][1]
     
     #solve front/right middle edge
-    solution += locateMiddleEdge(cubeModel, frontColor, rightColor, 'frontRight')
+    solution += locateMiddleEdge(cubeModel, frontColor, rightColor, 'front/right')
     
     return solution
 
+#colorOne should be the outward facing color if looking at the color'ss corresponding face dead on
 def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
     solution = ''
+    #checking if edge is in top layer
+    if(checkEdge((cubeModel.front[0][1], cubeModel.up[2][1]), colorOne, colorTwo) or checkEdge((cubeModel.right[0][1], cubeModel.up[1][2]), colorOne, colorTwo)
+       or checkEdge((cubeModel.back[0][1], cubeModel.up[0][1]), colorOne, colorTwo) or checkEdge((cubeModel.left[0][1], cubeModel.up[1][0]), colorOne, colorTwo)):
+        solution += solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
+
+    #check which first layer position edge is in, and move it to the top layer
+    
+    return solution 
+
+def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
+    solution = ''
+    #rotate given piece until its outward facing color is above the correct center, then solve given piece
+    if(edgeName == 'front/right'):
+        while((cubeModel.front[0][1] != colorOne and cubeModel.up[2][1] != colorTwo) and (cubeModel.right[0][1] != colorTwo and cubeModel.up[1][2] != colorOne)):
+            U(cubeModel)
+            solution += 'U'
+        if(cubeModel.front[0][1] == colorOne and cubeModel.up[2][1] == colorTwo):
+            U(cubeModel)
+            solution += 'U' + rightTrigger(cubeModel) + rightFrontTrigger(cubeModel)
     return solution
 
 #checks if given edge (provided by tuple) is correct edge

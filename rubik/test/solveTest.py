@@ -1040,8 +1040,7 @@ class SolveTest(unittest.TestCase):
         solve.leftFrontTrigger(cubeTest)
         assertString = 'bbyrbbybbrbbrrrrrrrggggggggoowooyoooyyyyyyoogbwwwwwwww'
         self.assertEqual(cubeTest.convertCube(), assertString)
-        
-    @unittest.skip
+
     def test_SolveH063_ShouldSolveFrontRightMiddleEdgeAboveFrontCenterInTopLayerOnMostlySolvedFirstLayer(self):
         parms = {'op':'solve',
                 'cube':'ybbbbybbbryygrrrrrorrgggggggboooooooyybyyogrywwwwwwwww'}
@@ -1051,7 +1050,7 @@ class SolveTest(unittest.TestCase):
         self.assertEqual(status, 'ok')
         solution = result.get('solution', None)
         assertParms = {'op':'solve',
-                       'cube': '',
+                       'cube': 'ybbbbybbbryygrrrrrorrgggggggboooooooyybyyogrywwwwwwwww',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)
