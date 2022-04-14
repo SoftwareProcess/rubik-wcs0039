@@ -1029,6 +1029,6 @@ class SolveTest(unittest.TestCase):
         cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         cubeTest = rubik.Cube()
         cubeTest.convertString(cubeString)
-        solve.backRightTrigger(cubeTest)
+        solve.backLeftTrigger(cubeTest)
         assertString = 'boobbbbbbbrrrrrrrrggwggygggooybooyoogyygyyryywwwwwwoww'
         self.assertEqual(cubeTest.convertCube(), assertString)
