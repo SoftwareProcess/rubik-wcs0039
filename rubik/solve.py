@@ -49,6 +49,7 @@ def _solve(parms):
         #making solution the first key in the dictionary
         solution = solveDownCross(cubeModel)
         solution += solveDownCorners(cubeModel)
+        solution += solveMiddleEdges(cubeModel)
         solutionDict = dict()
         solutionDict['solution'] = solution
         solutionDict.update(result)
@@ -525,6 +526,11 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
     
     return solution
   
+  
+def solveMiddleEdges(cubeModel):
+    solution = ''
+    return solution
+
 def checkDownCross(cubeModel):  
     color = cubeModel.down[1][1] # down center color
     #checking down face cross squares
