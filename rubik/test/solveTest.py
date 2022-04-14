@@ -1041,6 +1041,7 @@ class SolveTest(unittest.TestCase):
         assertString = 'bbyrbbybbrbbrrrrrrrggggggggoowooyoooyyyyyyoogbwwwwwwww'
         self.assertEqual(cubeTest.convertCube(), assertString)
         
+    @unittest.skip
     def test_SolveH063_ShouldSolveFrontRightMiddleEdgeAboveFrontCenterInTopLayerOnMostlySolvedFirstLayer(self):
         parms = {'op':'solve',
                 'cube':'ybbbbybbbryygrrrrrorrgggggggboooooooyybyyogrywwwwwwwww'}
@@ -1057,3 +1058,10 @@ class SolveTest(unittest.TestCase):
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
+        
+    def test_SolveY016_CheckEdgeShouldReturnTrueOnCorrectEdgeAndFalseOnIncorrectEdge(self):
+        cubeString = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        cubeTest = rubik.Cube()
+        cubeTest.convertString(cubeString)
+        self.assertTrue(solve.checkEdge((cubeTest.front[0][1], cubeTest.up[2][1]), cubeTest.front[1][1], cubeTest.up[1][1]) == True)
+        self.assertTrue(solve.checkEdge((cubeTest.front[1][2], cubeTest.right[1][0]), cubeTest.up[1][1], cubeTest.back[1][1]) == False)

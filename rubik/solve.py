@@ -529,7 +529,33 @@ def locateCorner(cubeModel, downColor, frontColor, rightColor):
   
 def solveMiddleEdges(cubeModel):
     solution = ''
+    if(checkFirstTwoLayers(cubeModel) == True):
+        return solution
+    
+    downColor = cubeModel.down[1][1]
+    frontColor = cubeModel.front[1][1]
+    rightColor = cubeModel.right[1][1]
+    backColor = cubeModel.back[1][1]
+    leftColor = cubeModel.left[1][1]
+    
+    #solve front/right middle edge
+    solution += locateMiddleEdge(cubeModel, frontColor, rightColor, 'frontRight')
+    
     return solution
+
+def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
+    solution = ''
+    return solution
+
+#checks if given edge (provided by tuple) is correct edge
+def checkEdge(edge, colorOne, colorTwo):
+    for square in edge:
+        if(square != colorOne and square != colorTwo):
+            return False
+        else:
+            pass
+    return True
+    
 
 def checkDownCross(cubeModel):  
     color = cubeModel.down[1][1] # down center color
