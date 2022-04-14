@@ -447,6 +447,9 @@ def rightBackTrigger(cubeModel):
     u(cubeModel)
     return 'BUbu'
 
+def backRightTrigger(cubeModel):
+    pass
+
 #Performs right triggers until corner is solved
 def solveDownCorner(cubeModel, downColor, frontColor, rightColor):
     solution = ''
