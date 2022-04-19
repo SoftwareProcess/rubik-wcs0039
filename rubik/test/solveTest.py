@@ -1152,14 +1152,14 @@ class SolveTest(unittest.TestCase):
         
     def test_SolveH068_ShouldSolveLeftFrontMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
         parms = {'op':'solve',
-                'cube':'yyyybbbbbrygrrrrrroobggggggrrbooooooybyyyboggwwwwwwwww'}
+                'cube':'ooggbbbbboyyrrrrrrboyggggggrryooyooogyryybbbywwwwwwwww'}
         result = solve._solve(parms)
         self.assertIn('status', result)
         status = result.get('status', None)
         self.assertEqual(status, 'ok')
         solution = result.get('solution', None)
         assertParms = {'op':'solve',
-                       'cube': 'yyyybbbbbrygrrrrrroobggggggrrbooooooybyyyboggwwwwwwwww',
+                       'cube': 'ooggbbbbboyyrrrrrrboyggggggrryooyooogyryybbbywwwwwwwww',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)

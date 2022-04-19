@@ -591,6 +591,15 @@ def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
         elif(cubeModel.back[0][1] == colorTwo and cubeModel.up[0][1] == colorOne):
             doubleRotate(cubeModel, 'U')
             solution += 'UU' + leftBackTrigger(cubeModel) + backLeftTrigger(cubeModel)
+    if(edgeName == 'left/front'):
+        while(checkEdge((cubeModel.left[0][1], cubeModel.up[1][0]), colorOne, colorTwo) == False):
+            U(cubeModel)
+            solution += 'U'
+        if(cubeModel.left[0][1] == colorOne and cubeModel.up[1][0] == colorTwo):
+            U(cubeModel)
+            solution += 'U' + leftFrontTrigger(cubeModel) + leftTrigger(cubeModel)
+            
+    
     return solution
 
 #checks if given edge (provided by tuple) is correct edge
