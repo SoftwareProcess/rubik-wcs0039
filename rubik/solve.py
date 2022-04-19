@@ -538,8 +538,8 @@ def solveMiddleEdges(cubeModel):
     backColor = cubeModel.back[1][1]
     leftColor = cubeModel.left[1][1]
     
-    #solve front/right middle edge
     solution += locateMiddleEdge(cubeModel, frontColor, rightColor, 'front/right')
+    solution += locateMiddleEdge(cubeModel, rightColor, backColor, 'right/back')
     
     return solution
 
@@ -551,7 +551,7 @@ def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
        or checkEdge((cubeModel.back[0][1], cubeModel.up[0][1]), colorOne, colorTwo) or checkEdge((cubeModel.left[0][1], cubeModel.up[1][0]), colorOne, colorTwo)):
         solution += solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
 
-    #check which first layer position edge is in, and move it to the top layer
+    #check which middle layer position edge is in, and move it to the top layer
     
     return solution 
 
@@ -559,13 +559,26 @@ def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
     solution = ''
     #rotate given piece until its outward facing color is above the correct center, then solve given piece
     if(edgeName == 'front/right'):
-        while((cubeModel.front[0][1] != colorOne and cubeModel.up[2][1] != colorTwo) and (cubeModel.right[0][1] != colorTwo and cubeModel.up[1][2] != colorOne)):
+        while(checkEdge((cubeModel.front[0][1], cubeModel.up[2][1]), colorOne, colorTwo) == False):
             U(cubeModel)
             solution += 'U'
         if(cubeModel.front[0][1] == colorOne and cubeModel.up[2][1] == colorTwo):
             U(cubeModel)
             solution += 'U' + rightTrigger(cubeModel) + rightFrontTrigger(cubeModel)
-        
+        #right color over front center
+        elif(cubeModel.front[0][1] == colorTwo and cubeModel.up[2][1] == colorOne):
+            doubleRotate(cubeModel, 'U')
+            solution +=  'UU' + rightFrontTrigger(cubeModel) + rightTrigger(cubeModel)
+    if(edgeName == 'right/back'):
+        while(checkEdge((cubeModel.right[0][1], cubeModel.up[1][2]), colorOne, colorTwo) == False):
+            U(cubeModel)
+            solution += 'U'
+        if(cubeModel.right[0][1] == colorOne and cubeModel.up[1][2] == colorTwo):
+            U(cubeModel)
+            solution += 'U' + rightBackTrigger(cubeModel) + backRightTrigger(cubeModel)
+        elif(cubeModel.right[0][1] == colorTwo and cubeModel.up[1][2] == colorOne):
+            doubleRotate(cubeModel, 'U')
+            solution += 'UU' + backRightTrigger(cubeModel) + rightBackTrigger(cubeModel)
     return solution
 
 #checks if given edge (provided by tuple) is correct edge
