@@ -587,6 +587,8 @@ def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
         if(cubeModel.back[0][1] == colorOne and cubeModel.up[0][1] == colorTwo):
             U(cubeModel)
             solution += 'U' + backLeftTrigger(cubeModel) + leftBackTrigger(cubeModel)
+        elif(cubeModel.back[0][1] == colorTwo and cubeModel.up[0][1] == colorOne):
+            pass
     return solution
 
 #checks if given edge (provided by tuple) is correct edge
