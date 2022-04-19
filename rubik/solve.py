@@ -598,7 +598,6 @@ def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
         if(cubeModel.left[0][1] == colorOne and cubeModel.up[1][0] == colorTwo):
             U(cubeModel)
             solution += 'U' + leftFrontTrigger(cubeModel) + leftTrigger(cubeModel)
-            
     
     return solution
 

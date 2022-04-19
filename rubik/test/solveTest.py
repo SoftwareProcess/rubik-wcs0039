@@ -1150,7 +1150,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
         
-    def test_SolveH068_ShouldSolveLeftFrontMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH069_ShouldSolveLeftFrontMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
         parms = {'op':'solve',
                 'cube':'ooggbbbbboyyrrrrrrboyggggggrryooyooogyryybbbywwwwwwwww'}
         result = solve._solve(parms)
@@ -1160,6 +1160,23 @@ class SolveTest(unittest.TestCase):
         solution = result.get('solution', None)
         assertParms = {'op':'solve',
                        'cube': 'ooggbbbbboyyrrrrrrboyggggggrryooyooogyryybbbywwwwwwwww',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
+        
+    def test_SolveH070_ShouldSolveFlippedLeftFrontMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+        parms = {'op':'solve',
+                'cube':'gyybbbbbboyyrrrrrrbbyggggggggrooyoooooryyoyrbwwwwwwwww'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        assertParms = {'op':'solve',
+                       'cube': 'gyybbbbbboyyrrrrrrbbyggggggggrooyoooooryyoyrbwwwwwwwww',
                        'rotate': solution}
         assertResult = solve._solve(assertParms)
         assertString = assertResult.get('cube', None)
