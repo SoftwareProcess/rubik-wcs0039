@@ -642,12 +642,12 @@ def checkFirstTwoLayers(cubeModel):
         backColor = cubeModel.back[1][1]
         leftColor = cubeModel.left[1][1]
         
-        if(cubeModel.front[1][2] != frontColor and cubeModel.right[1][0] != rightColor):
+        if(cubeModel.front[1][2] != frontColor or cubeModel.right[1][0] != rightColor):
             return False
-        if(cubeModel.right[1][2] != rightColor and cubeModel.back[1][0] != backColor):
+        if(cubeModel.right[1][2] != rightColor or cubeModel.back[1][0] != backColor):
             return False
-        if(cubeModel.back[1][2] != backColor and cubeModel.left[1][0] != leftColor):
+        if(cubeModel.back[1][2] != backColor or cubeModel.left[1][0] != leftColor):
             return False
-        if(cubeModel.left[1][2] != leftColor and cubeModel.left):
+        if(cubeModel.left[1][2] != leftColor or cubeModel.front[1][0] != frontColor):
             return False
         return True
