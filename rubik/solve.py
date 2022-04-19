@@ -541,6 +541,7 @@ def solveMiddleEdges(cubeModel):
     solution += locateMiddleEdge(cubeModel, frontColor, rightColor, 'front/right')
     solution += locateMiddleEdge(cubeModel, rightColor, backColor, 'right/back')
     solution += locateMiddleEdge(cubeModel, backColor, leftColor, 'back/left')
+    solution += locateMiddleEdge(cubeModel, leftColor, frontColor, 'left/front')
     
     return solution
 
