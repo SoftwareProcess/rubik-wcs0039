@@ -554,7 +554,12 @@ def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
         solution += solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
 
     #check which middle layer position edge is in, and move it to the top layer
-                
+    if(checkEdge((cubeModel.right[1][2], cubeModel.back[1][0]), colorOne, colorTwo)):
+        if(cubeModel.right[1][2] == cubeModel.right[1][1] and cubeModel.back[1][0] == cubeModel.back[1][1]):
+            pass
+        else:
+            solution += rightBackTrigger(cubeModel) + backRightTrigger(cubeModel) + solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)  
+              
     return solution 
 
 def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
