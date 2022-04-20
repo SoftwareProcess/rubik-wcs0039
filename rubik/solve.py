@@ -554,7 +554,7 @@ def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
         solution += solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
 
     #check which middle layer position edge is in, and move it to the top layer
-    
+                
     return solution 
 
 def solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):

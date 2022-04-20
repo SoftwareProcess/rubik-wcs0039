@@ -1041,7 +1041,7 @@ class SolveTest(unittest.TestCase):
         assertString = 'bbyrbbybbrbbrrrrrrrggggggggoowooyoooyyyyyyoogbwwwwwwww'
         self.assertEqual(cubeTest.convertCube(), assertString)
 
-    def test_SolveH063_ShouldSolveFrontRightMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH063_ShouldSolveFrontRightMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'ybbbbybbbryygrrrrrorrgggggggboooooooyybyyogrywwwwwwwww'}
         result = solve._solve(parms)
@@ -1065,7 +1065,7 @@ class SolveTest(unittest.TestCase):
         self.assertTrue(solve.checkEdge((cubeTest.front[0][1], cubeTest.up[2][1]), cubeTest.front[1][1], cubeTest.up[1][1]) == True)
         self.assertTrue(solve.checkEdge((cubeTest.front[1][2], cubeTest.right[1][0]), cubeTest.up[1][1], cubeTest.back[1][1]) == False)
         
-    def test_SolveH064_ShouldSolveRightBackMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH064_ShouldSolveRightBackMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'obybbbbbbrryrrgrrrboyygggggorgoooooobyrgyyyygwwwwwwwww'}
         result = solve._solve(parms)
@@ -1082,7 +1082,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
         
-    def test_SolveH065_ShouldSolveFlippedFrontRightMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH065_ShouldSolveFlippedFrontRightMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'grybbybbbbyrrrrrrrgyyggggggooyoooooobbyyygobrwwwwwwwww'}
         result = solve._solve(parms)
@@ -1099,7 +1099,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
         
-    def test_SolveH066_ShouldSolveFlippedRightBackMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH066_ShouldSolveFlippedRightBackMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'obybbbbbbrgyrryrrrboyrgggggoggoooooobyryyryygwwwwwwwww'}
         result = solve._solve(parms)
@@ -1116,7 +1116,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
         
-    def test_SolveH067_ShouldSolveBackLeftMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH067_ShouldSolveBackLeftMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'gbybbbbbbryrrrrrrrygbggygggyrygooooooobyyooygwwwwwwwww'}
         result = solve._solve(parms)
@@ -1133,7 +1133,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
     
-    def test_SolveH068_ShouldSolveFlippedBackLeftMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH068_ShouldSolveFlippedBackLeftMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'oyybbbbbbroorrrrrrybrggygggyyyrooooobygoygbggwwwwwwwww'}
         result = solve._solve(parms)
@@ -1150,7 +1150,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
         
-    def test_SolveH069_ShouldSolveLeftFrontMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH069_ShouldSolveLeftFrontMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'ooggbbbbboyyrrrrrrboyggggggrryooyooogyryybbbywwwwwwwww'}
         result = solve._solve(parms)
@@ -1167,7 +1167,7 @@ class SolveTest(unittest.TestCase):
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
         
-    def test_SolveH070_ShouldSolveFlippedLeftFrontMiddleEdgeInTopLayerOnMostlySolvedFirstLayer(self):
+    def test_SolveH070_ShouldSolveFlippedLeftFrontMiddleEdgeInTopLayerOnMostlySolvedSecondLayer(self):
         parms = {'op':'solve',
                 'cube':'gyybbbbbboyyrrrrrrbbyggggggggrooyoooooryyoyrbwwwwwwwww'}
         result = solve._solve(parms)
@@ -1183,3 +1183,20 @@ class SolveTest(unittest.TestCase):
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
         self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
+        
+    def test_SolveH071_ShouldSolveFrontRightMiddleEdgeIncorrectlyInRightBackMiddlePosition(self):
+        parms = {'op':'solve',
+                'cube':'rrybbybbbryobrrrrrbgobgggggyoboooooogryyygyygwwwwwwwww'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        assertParms = {'op':'solve',
+                       'cube': 'rrybbybbbryobrrrrrbgobgggggyoboooooogryyygyygwwwwwwwww',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(assertCube.front[1][2] == assertCube.front[1][1] and assertCube.right[1][0] == assertCube.right[1][1])
