@@ -1234,3 +1234,20 @@ class SolveTest(unittest.TestCase):
         assertCube = rubik.Cube()
         assertCube.convertString(assertString)
         self.assertTrue(assertCube.back[1][2] == assertCube.back[1][1] and assertCube.left[1][0] == assertCube.left[1][1])
+        
+    def test_SolveY016_ShouldSolveFirstTwoLayersOfScrambledCube(self):
+        parms = {'op':'solve',
+                'cube':'ogbwybobowrrygbbyyywyrwrbywrwwgboroyggbbowgyrgowgrrgoo'}
+        result = solve._solve(parms)
+        self.assertIn('status', result)
+        status = result.get('status', None)
+        self.assertEqual(status, 'ok')
+        solution = result.get('solution', None)
+        assertParms = {'op':'solve',
+                       'cube': 'ogbwybobowrrygbbyyywyrwrbywrwwgboroyggbbowgyrgowgrrgoo',
+                       'rotate': solution}
+        assertResult = solve._solve(assertParms)
+        assertString = assertResult.get('cube', None)
+        assertCube = rubik.Cube()
+        assertCube.convertString(assertString)
+        self.assertTrue(solve.checkFirstTwoLayers(assertCube) == True)
