@@ -205,7 +205,6 @@ def solveDownCross(cubeModel):
     solution += 'u' + locateBottomEdge(cubeModel, downColor, leftColor) + 'U'
     U(cubeModel)
     
-    
     #rotating edges from daisy position to solved position   
     doubleRotate(cubeModel, 'F')
     doubleRotate(cubeModel, 'R')
@@ -532,7 +531,6 @@ def solveMiddleEdges(cubeModel):
     if(checkFirstTwoLayers(cubeModel) == True):
         return solution
     
-    upColor = cubeModel.up[1][1]
     frontColor = cubeModel.front[1][1]
     rightColor = cubeModel.right[1][1]
     backColor = cubeModel.back[1][1]
@@ -559,7 +557,6 @@ def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
             pass
         else:
             solution += rightTrigger(cubeModel) + rightFrontTrigger(cubeModel) + solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
-        
     if(checkEdge((cubeModel.right[1][2], cubeModel.back[1][0]), colorOne, colorTwo)):
         if(cubeModel.right[1][2] == cubeModel.right[1][1] and cubeModel.back[1][0] == cubeModel.back[1][1]):
             pass
