@@ -571,7 +571,11 @@ def locateMiddleEdge(cubeModel, colorOne, colorTwo, edgeName):
             pass
         else:
             solution += backLeftTrigger(cubeModel) + leftBackTrigger(cubeModel) + solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
-
+    if(checkEdge((cubeModel.left[1][2], cubeModel.front[1][0]), colorOne, colorTwo)):
+        if(cubeModel.left[1][2] == cubeModel.left[1][1] and cubeModel.front[1][0] == cubeModel.front[1][1]):
+            pass
+        else:
+            solution += leftFrontTrigger(cubeModel) + leftTrigger(cubeModel) + solveMiddleEdge(cubeModel, colorOne, colorTwo, edgeName)
         
     return solution 
 
